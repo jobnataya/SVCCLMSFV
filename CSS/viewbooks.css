@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.header{
+    color: white;
+    background: rgb(0, 167, 0);
+    width: 100%;
+    display: flex;
+    height: 100px;
+    border-bottom: 1px solid #a7a5a5;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.logo{
+    padding: 10px;
+}
+.logo img{
+    height: 80px;
+    width: 80px;
+}
+.text{
+    padding-top: 35px;
+}
+.icon img{
+    height: 100px;
+    width: 100px;
+}
+.article{
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+}
+.leftside{
+    display: flex;
+}
+.leftside h2{
+    padding-top: 35px;
+}
+.logout{
+    margin-top: 27px;
+    margin-right: 20px;
+}
+.logout p{
+    height: 40px;
+    width: 110px;
+    padding-left: 15px;
+    padding-top: 10px;
+    background: red;
+    color: white;
+    font-size: small;
+}
+.leftarticle{
+    height: 100px;
+    width: 260px;
+    outline: auto;
+    text-align: left;
+    position: fixed;
+    left: 0;
+}
+nav ul{
+    list-style: none;
+}
+nav ul li{
+   line-height: 74px;
+}
+nav ul li a {
+    border-bottom: 2px solid rgb(0, 0, 0);
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    background: rgb(0, 121, 0);
+    transition: 0.3s;
+    padding-left: 50px;
+    font-size: larger;
+    font-family: monospace;
+    color: white;
+    padding-left: 20px;
+  }
+nav ul li a:hover{
+    background: rgb(1, 212, 30);
+}
+nav ul li i{
+    margin-right: 20px;
+}
+.center{
+    position: absolute;
+    outline: auto;
+}
+.centerarticle{
+    margin-left:262px;
+    position: relative;
+    padding-left: 200px;
+    background: rgb(1, 212, 30);
+    outline: auto;
+    height: 25px;
+}
+.centerarticle ul{
+    padding-top: 4px;
+}
+.centerarticle ul li{
+    display: inline;
+    list-style: none;
+    margin-left: 60px;
+}
+.centerarticle ul li a{
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+.ddownadrticle{
+    outline: auto;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 262px;
+}
+.centerarticle ul li a:hover{
+    padding: 1px;
+    background-color: rgb(0, 107, 9);
+}
+.viewbooks{
+    padding: 1px;
+    border-bottom: 2px solid red;
+}

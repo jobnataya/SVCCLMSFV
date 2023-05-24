@@ -1,0 +1,198 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.header{
+    color: white;
+    background: rgb(0, 167, 0);
+    width: 100%;
+    display: flex;
+    height: 100px;
+    border-bottom: 1px solid #a7a5a5;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.logo{
+    padding: 10px;
+}
+.logo img{
+    height: 80px;
+    width: 80px;
+}
+.text{
+    padding-top: 35px;
+}
+.icon img{
+    height: 100px;
+    width: 100px;
+}
+.article{
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+}
+.leftside{
+    display: flex;
+}
+.leftside h2{
+    padding-top: 35px;
+}
+.logout{
+    margin-top: 27px;
+    margin-right: 20px;
+}
+.logout p{
+    height: 40px;
+    width: 110px;
+    padding-left: 15px;
+    padding-top: 10px;
+    background: red;
+    color: white;
+    font-size: small;
+}
+.leftarticle{
+    height: 100%;
+    width: 260px;
+    text-align: left;
+    position: fixed;
+    left: 0;
+}
+nav ul{
+    list-style: none;
+}
+nav ul li{
+   line-height: 74px;
+}
+nav ul li a {
+    border-bottom: 2px solid rgb(0, 0, 0);
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    background: rgb(0, 121, 0);
+    transition: 0.3s;
+    font-size: larger;
+    font-family: monospace;
+    color: white;
+    padding-left: 20px;
+  }
+nav ul li a:hover{
+    background: rgb(1, 212, 30);
+}
+nav ul li i{
+    margin-right: 20px;
+}
+.center{
+    position: absolute;
+    outline: auto;
+}
+.centerarticle{
+    margin-left:262px;
+    position: relative;
+    padding-left: 200px;
+    background: rgb(1, 212, 30);
+    outline: auto;
+    height: 25px;
+}
+.centerarticle ul{
+    padding-top: 4px;
+}
+.centerarticle ul li{
+    display: inline;
+    list-style: none;
+    margin-left: 60px;
+}
+.centerarticle ul li a{
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+.ddownadrticle{ 
+    outline: auto;
+    position: relative;
+    margin-top: 40px;
+    margin-left: 500px;
+    height: 360px;
+    width: 600px;
+}
+.ddownadrticle h1{
+    padding-top: 10px;
+    padding-left: 220px;
+    outline: auto;
+    height: 60px;
+}
+.addbooks{
+    padding: 1px;
+    border-bottom: 2px solid red;
+}
+.centerarticle ul li a:hover{
+    background-color: rgb(0, 107, 9);
+}
+.ddownadrticle h1{
+    font-family: monospace;
+}
+.ddownadrticle{
+
+}
+.ddownadrticle .forms{
+    padding-top: 35px;
+    padding-left: 20px;   
+    line-height: 35px;
+}
+.ddownadrticle .inputclear{
+    justify-content: space-evenly;
+    width: 200px;
+    display: flex;
+    margin: 0 auto;
+}
+.ddownadrticle #isbn{
+    border-radius: 40px;
+    margin-left: 40px;
+    height: 30px;
+    width: 350px;
+    background-color: green;
+    color: white;
+}
+.ddownadrticle #bookname{
+    border-radius: 40px;
+    height: 30px;
+    width: 350px;
+    background-color: green;
+    color: white;
+}
+.ddownadrticle #Author{
+    border-radius: 40px;
+    height: 30px;
+    width: 350px;
+    margin-left: 30px;
+    background-color: green;
+    color: white;
+}
+.ddownadrticle #Quantity{
+    border-radius: 40px;
+    height: 30px;
+    width: 70px;
+    background-color: green;
+    color: white;
+}
+.inputclear #add{
+    height: 40px;
+    width: 50px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.inputclear #clear{
+    height: 40px;
+    width: 50px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.inputclear #add:hover{
+    background-color: rgb(6, 207, 6);
+}
+.inputclear #clear:hover{
+    background-color: rgb(250, 140, 140);
+}

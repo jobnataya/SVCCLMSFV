@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family:sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.header{
+    background: rgb(0, 167, 0);
+    width: 100%;
+    display: flex;
+    height: 100px;
+    border-bottom: 1px solid #a7a5a5;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);  
+  color: white;  
+}
+.logo{
+    padding: 10px;
+}
+.logo img{
+    height: 80px;
+    width: 80px;
+}
+.text{
+    padding-top: 35px;
+}
+.article{
+    margin-top: 90px;
+    position: relative;
+}
+.center{
+    height: 350px;
+    width: 1000px;
+    display: flex;
+    margin: 0 auto;
+    border: 1px solid #a7a5a5;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 10);
+    position: relative;
+}
+.center .login{
+    text-align: center;
+    margin-left: 60px;
+    position: absolute;
+    bottom: 10px;
+}
+.center .login p{
+    background-color: rgb(0, 167, 0);
+    padding-top: 17px;
+    height: 50px;
+    width: 300px;
+    color: white;
+    border: 2px solid black;
+    transition: 0.3s;
+}
+.center .login p:hover{
+    background: rgb(46, 92, 0);
+}
+.BItext{
+    text-align: center;
+    padding: 13px;
+    background: rgb(0, 167, 0);
+    color: white;
+}
+.BItextc{
+    text-align: center;
+    padding: 16px;
+    background: rgb(0, 167, 0);
+    color: white;
+    margin-bottom: 25px;
+}
+.BItextb{
+    text-align: center;
+    padding: 5px;
+    background: rgb(0, 167, 0);
+    color: white;
+    margin-bottom: 15px;
+}
+.left .FNname{
+    padding-top: 10px;
+    padding-left: 10px ;
+}
+.left #inputs{
+    padding: 6px;
+    margin-bottom: 10px;
+    margin-left: 4px;
+}
+.left  #bot{
+    line-height: 40px;
+    margin-left: 5px;
+}
+.left #submit{
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+    width: 300px;
+    height: 50px;
+    transition: 0.3s;
+    background: rgb(0, 167, 0);
+    color: white;
+}
+.left #submit:hover{
+    background-color: rgb(46, 92, 0);
+   
+}
+.left{
+    width: 800px;
+    background: white;
+}
+.centers{
+    border-left: 1px solid green;
+    border-right: 1px solid green;
+    width: 800px;
+    background: white;
+}
+.centers #textcc{
+    margin-left: 5px;
+    line-height: 40px;
+}
+.centers #inputc{
+    padding: 5px;
+}
+.right{
+    background: white;
+    width: 400px; 
+    text-align: center;
+}
+.right #usertype{
+    margin-bottom: 9px;
+    line-height: 40px;
+}
+.right #inputr{
+    padding: 5px;
+}
+
