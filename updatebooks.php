@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CSS/adminhome.css">
+    <link rel="stylesheet" href="CSS/updatebooks.css">
     <title>Home admin</title>
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
@@ -39,10 +39,10 @@
     </div>
     <div class="centerarticle">
         <ul>
-            <li><a href="addbooks.html">ADD BOOKS</a></li>
-            <li><a href="updatebooks.html">UPDATE BOOKS</a></li>
-            <li><a href="viewbooks.html">VIEW BOOKS</a></li>
-            <li><a href="deletebooks.html">DELETE BOOKS</a></li>
+            <li><a href="addbooks.php">ADD BOOKS</a></li>
+            <li class="updatebooks"><a href="updatebooks.html">UPDATE BOOKS</a></li>
+            <li><a href="viewbooks.php">VIEW BOOKS</a></li>
+            <li><a href="deletebooks.php">DELETE BOOKS</a></li>
         </ul>
     </div>
     <div class="ddownadrticle">

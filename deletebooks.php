@@ -39,9 +39,9 @@
     </div>
     <div class="centerarticle">
         <ul>
-            <li><a href="addbooks.html">ADD BOOKS</a></li>
-            <li><a href="updatebooks.html">UPDATE BOOKS</a></li>
-            <li><a href="viewbooks.html">VIEW BOOKS</a></li>
+            <li><a href="addbooks.php">ADD BOOKS</a></li>
+            <li><a href="updatebooks.php">UPDATE BOOKS</a></li>
+            <li><a href="viewbooks.php">VIEW BOOKS</a></li>
             <li class="deletebooks"><a href="deletebooks.html">DELETE BOOKS</a></li>
         </ul>
     </div>

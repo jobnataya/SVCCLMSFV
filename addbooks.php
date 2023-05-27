@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CSS/viewbooks.css">
+    <link rel="stylesheet" href="CSS/addbooks.css">
     <title>Home admin</title>
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
@@ -39,14 +39,47 @@
     </div>
     <div class="centerarticle">
         <ul>
-            <li><a href="addbooks.html">ADD BOOKS</a></li>
-            <li><a href="updatebooks.html">UPDATE BOOKS</a></li>
-            <li class="viewbooks"><a href="viewbooks.html">VIEW BOOKS</a></li>
-            <li><a href="deletebooks.html">DELETE BOOKS</a></li>
+            <li class="addbooks"><a href="addbooks.html">ADD BOOKS</a></li>
+            <li><a href="updatebooks.php">UPDATE BOOKS</a></li>
+            <li><a href="viewbooks.php">VIEW BOOKS</a></li>
+            <li><a href="deletebooks.php">DELETE BOOKS</a></li>
         </ul>
     </div>
     <div class="ddownadrticle">
-        <h1>hello world</h1>
+        <h1>Add books</h1>
+        <div class="forms">
+        <form action="">
+            <label for="dateentry">Date of Entry</label>
+            <input type="date" >
+            <br>
+            <label for="isbn">ISBN</label>
+            <input type="text" id="isbn">
+            <br>
+            <label for="bookid">Book ID</label>
+            <input type="text" id="bookid">
+            <br>
+            <label for="Booke Name">Book Name</label>
+            <input type="text" id="bookname">
+            <br>
+            <label for="Author">Author</label>
+            <input type="text" name="" id="Author">
+            <br>
+            <label for="bookcover">Book Cover</label>
+            <input type="file" id="input">
+            <br>
+            <label for="bookquantity">Book Quantity</label>
+            <input type="number" name=""id="Quantity">
+            <br>
+            <div class="inputclear">
+                <div class="add">
+                    <input type="submit" value="ADD" id="add">
+                </div>
+                <div class="clear">
+                    <input type="reset" value="Clear" id="clear">
+                </div>
+            </div>
+            </div>
+        </form>
     </div>
     </div>
     
