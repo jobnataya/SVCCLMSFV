@@ -111,8 +111,10 @@ nav ul li i{
 .ddownadrticle{
     outline: auto;
     position: relative;
-    margin-top: 20px;
-    margin-left: 262px;
+    margin-top: 50px;
+    margin-left: 550px;
+    width: 500px;
+    height: 350px;
 }
 .centerarticle ul li a:hover{
     padding: 1px;
@@ -121,4 +123,52 @@ nav ul li i{
 .deletebooks{
     padding: 1px;
     border-bottom: 2px solid red;
+}
+.ddownadrticle h1{
+    height: 80px;
+    outline: auto;
+    text-align: center;
+    padding-top: 24px;
+    font-family: monospace;
+}
+.ddownadrticle .form{
+    padding-top: 100px;
+    padding-left: 120px;
+}
+.ddownadrticle .form .artikel .subclear{
+    margin-top: 40px;
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    margin-left: 50px;
+}
+.ddownadrticle .artikel #bookname{
+    padding: 5px;
+    background-color: green;
+    border-radius: 40px;
+    border-style: none;
+    color: white;
+    margin-left: 5px;
+}
+.ddownadrticle .artikel .subclear #delete{
+    height: 40px;
+    width: 50px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.ddownadrticle .artikel .subclear #clear{
+    height: 40px;
+    width: 50px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.ddownadrticle .artikel .subclear #delete:hover{
+    background-color: rgb(6, 207, 6);
+}
+.ddownadrticle .artikel .subclear #clear:hover{
+    background-color: rgb(250, 140, 140);
 }

@@ -151,6 +151,7 @@ nav ul li i{
     width: 350px;
     background-color: green;
     color: white;
+    border-style: none;
 }
 .ddownadrticle #bookname{
     border-radius: 40px;
@@ -158,6 +159,7 @@ nav ul li i{
     width: 350px;
     background-color: green;
     color: white;
+    border-style: none;
 }
 .ddownadrticle #Author{
     border-radius: 40px;
@@ -166,6 +168,7 @@ nav ul li i{
     margin-left: 30px;
     background-color: green;
     color: white;
+    border-style: none;
 }
 .ddownadrticle #Quantity{
     border-radius: 40px;
@@ -173,6 +176,19 @@ nav ul li i{
     width: 70px;
     background-color: green;
     color: white;
+    border-style: none;
+}
+.ddownadrticle #bookid{
+    border-radius: 40px;
+    height: 30px;
+    width: 350px;
+    margin-left: 20px;
+    background-color: green;
+    color: white;
+    border-style: none;
+}
+.inputclear{
+    padding-bottom: 5px;
 }
 .inputclear #add{
     height: 40px;
