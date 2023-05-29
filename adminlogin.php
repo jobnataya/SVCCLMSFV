@@ -10,35 +10,7 @@
 <?php
     session_start();
     include("db.connection.php");
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST')
-    {
-        $uname = $_POST['uname'];
-        $pword = $_POST['pword'];
-
-        if (!empty($uname) && !empty($pword)) 
-        {
-            $query = "SELECT * FROM adminlogin WHERE uname = '$uname' LIMIT 1";
-            $result = mysqli_query($conn, $query);
-
-            if($result){
-                if ($result && mysqli_num_rows($result)>0) 
-                {
-                    $user_data = mysqli_fetch_assoc($result);
-
-                    if ($user_data['pword'] == $pword) 
-                    {
-                        header("Location:adminhome.php");
-                        die;
-                    }
-                }
-            }
-            echo "<script type = 'text/javascript'> alert ('Wrong Username!')</script>";
-        }else
-        {
-            echo "<script type = 'text/javascript'> alert ('Wrong Password!')</script>";
-     
-    }   }
+    include("adminloginfunction.php")
 ?>
 <body body style="background:url(IMAGES/books.jpg)">
     <div class="all">
@@ -48,7 +20,7 @@
         </div>
         <div class="center">
         <div class="adminlogin">
-            <form method="POST">
+            <form method="POST" action="adminhome.php">
                 <h2>Admin Login</h2>
                 <div class="form">
                 <label for="Username">Username</label><br>

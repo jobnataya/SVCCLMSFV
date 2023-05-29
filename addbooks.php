@@ -1,3 +1,33 @@
+<?php
+    include("db.connection.php");
+
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $date = $_POST["date"];
+        $isbn = $_POST["isbn"];
+        $bookid = $_POST["bookid"];
+        $bookname = $_POST["bookname"];
+        $author = $_POST["author"];
+        $bookquantity = $_POST["bookquantity"];
+
+        if  (isset($_FILES["image"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK){
+            $file = $_FILES["image"];
+            $fileName = $file["name"];
+            $fileTmpPath = $file["tmp_name"];
+            $fileSize = $file["size"];  
+
+            $fileData = file_get_contents($fileTmpPath);
+
+            $query = "INSERT INTO addbooks (`date`,`isbn`,`bookid`,`bookname`,`author`,`bookcover`,`bookquantity`) values ('$date','$isbn','$bookid','$bookname','$author','$fileData','$bookquantity')";
+
+            mysqli_query($conn, $query); 
+
+         echo "<script type = 'text/javascript'> alert ('Successfully Register')</script>";
+
+    }else{
+        "<script type = 'text/javascript'> alert ('not Register')</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +54,7 @@
         </div>
         <div class="texticon"><h2>Online Library Management System</h2></div>
      </div>
-        <div class="logout"><p>LOG ME OUT</p></div>
+     <div class="logout"><a href="logout.php"><p>Log out</p></a></div>
     </div>
     <div class="leftarticle">
         <nav>
@@ -48,27 +78,27 @@
     <div class="ddownadrticle">
         <h1>Add books</h1>
         <div class="forms">
-        <form action="">
+        <form action="addbooks.php" method="POST" enctype="multipart/form-data">
             <label for="dateentry">Date of Entry</label>
-            <input type="date" >
+            <input type="date" name="date">
             <br>
             <label for="isbn">ISBN</label>
-            <input type="text" id="isbn">
+            <input type="text" id="isbn" name="isbn">
             <br>
             <label for="bookid">Book ID</label>
-            <input type="text" id="bookid">
+            <input type="text" id="bookid" name="bookid">
             <br>
             <label for="Booke Name">Book Name</label>
-            <input type="text" id="bookname">
+            <input type="text" id="bookname" name="bookname">
             <br>
             <label for="Author">Author</label>
-            <input type="text" name="" id="Author">
+            <input type="text" name="author" id="Author" >
             <br>
             <label for="bookcover">Book Cover</label>
-            <input type="file" id="input">
+            <input type="file" id="input" name="image">
             <br>
             <label for="bookquantity">Book Quantity</label>
-            <input type="number" name=""id="Quantity">
+            <input type="number" name="bookquantity" id="Quantity">
             <br>
             <div class="inputclear">
                 <div class="add">

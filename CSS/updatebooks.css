@@ -38,17 +38,23 @@
     padding-top: 35px;
 }
 .logout{
-    margin-top: 27px;
+    margin-top: 20px;
     margin-right: 20px;
 }
+.logout a{
+    text-decoration: none;
+}
 .logout p{
-    height: 40px;
-    width: 110px;
-    padding-left: 15px;
-    padding-top: 10px;
+    width: 75px;
+    height: 50px;
     background: red;
+    text-align: center;
+    padding-top: 15px;
     color: white;
-    font-size: small;
+    transition: 0.3s;
+}
+.logout p:hover{
+    background: black;
 }
 .leftarticle{
     height: 100px;

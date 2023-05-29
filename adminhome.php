@@ -1,3 +1,11 @@
+<?php
+   include("db.connection.php");
+   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $user = $_POST['uname'];
+    $sql = "SELECT * FROM adminlogin WHERE uname = '$user'";
+    $query = mysqli_query($conn, $sql); 
+   }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +32,7 @@
         </div>
         <div class="texticon"><h2>Online Library Management System</h2></div>
      </div>
-        <div class="logout"><p>LOG ME OUT</p></div>
+        <div class="logout"><a href="logout.php"><p>Log out</p></a></div>
     </div>
     <div class="leftarticle">
         <nav>
@@ -45,8 +53,14 @@
             <li><a href="deletebooks.php">DELETE BOOKS</a></li>
         </ul>
     </div>
-    <div class="ddownadrticle">
-        <h1>hello world</h1>
+    
+    <div class="ddownadrticle"> 
+           <?php
+                while ($row = mysqli_fetch_assoc($query)) {
+                    echo "<h1> FIRST NAME: ". $row['fname']. "</h1>";
+                    echo "<h1> MIDDLE NAME: ". $row['mname']. "</h1>";
+                }
+            ?>
     </div>
     </div>
     

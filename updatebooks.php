@@ -24,7 +24,7 @@
         </div>
         <div class="texticon"><h2>Online Library Management System</h2></div>
      </div>
-        <div class="logout"><p>LOG ME OUT</p></div>
+       <div class="logout"><a href="logout.php"><p>Log out</p></a></div>
     </div>
     <div class="leftarticle">
         <nav>
