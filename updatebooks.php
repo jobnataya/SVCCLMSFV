@@ -9,6 +9,31 @@
     <title>Home admin</title>
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
+<?php
+    include("db.connection.php");
+    session_start();
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+     {
+        $date = $_POST["date"];
+        $isbn = $_POST["isbn"];
+        $bookid = $_POST["bookid"];
+        $bookname = $_POST["bookname"];
+        $author = $_POST["author"];
+        $bookquantity = $_POST["bookquantity"];
+
+        
+
+        $query = "UPDATE addbooks SET date = '$date', isbn = '$isbn' , bookname = '$bookname', author = '$author', bookquantity = '$bookquantity' WHERE bookname = '$bookname'";
+        
+        if (mysqli_query($conn, $query)) {
+            echo "<script type='text/javascript'> alert('Update books Successfully!')</script>";
+        } else {
+            echo "<script type='text/javascript'> alert('Error Update books!')</script>";
+        }
+        
+    }  
+?>
 <body>
    <div class="all">
     <div class="header">
@@ -48,7 +73,7 @@
     <div class="ddownadrticle">
         <h1>Update books</h1>
         <div class="forms">
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST">
             <label for="dateentry">Date of Entry</label>
             <input type="date" name="date">
             <br>
