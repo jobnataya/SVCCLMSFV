@@ -57,8 +57,7 @@
     <div class="ddownadrticle"> 
            <?php
                 while ($row = mysqli_fetch_assoc($query)) {
-                    echo "<h1> FIRST NAME: ". $row['fname']. "</h1>";
-                    echo "<h1> MIDDLE NAME: ". $row['mname']. "</h1>";
+                    echo "<h1> Welcome,  ". $row['fname']. " ! You are now logged in.</h1>";
                 }
             ?>
     </div>

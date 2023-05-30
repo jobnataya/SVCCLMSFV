@@ -96,10 +96,16 @@ nav ul li i{
     transition: 0.3s;
 }
 .ddownadrticle{
-    outline: auto;
     position: relative;
     margin-top: 20px;
     margin-left: 262px;
+    height: 400px;
+    width: 1100px;
+}
+.ddownadrticle h1{
+    padding-top: 150px;
+    text-align: center;
+   font-family: monospace;
 }
 .centerarticle ul li a:hover{
     padding: 1px;

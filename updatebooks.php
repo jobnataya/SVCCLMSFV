@@ -46,7 +46,38 @@
         </ul>
     </div>
     <div class="ddownadrticle">
-        <h1>hello world</h1>
+        <h1>Update books</h1>
+        <div class="forms">
+        <form method="POST" enctype="multipart/form-data">
+            <label for="dateentry">Date of Entry</label>
+            <input type="date" name="date">
+            <br>
+            <label for="isbn">ISBN</label>
+            <input type="text" id="isbn" name="isbn">
+            <br>
+            <label for="bookid">SERIES</label>
+            <input type="text" id="bookid" name="bookid">
+            <br>
+            <label for="Booke Name">Book Name</label>
+            <input type="text" id="bookname" name="bookname">
+            <br>
+            <label for="Author">Author</label>
+            <input type="text" name="author" id="Author" >
+            <br>
+            <label for="bookquantity">Book Quantity</label>
+            <input type="number" name="bookquantity" id="Quantity">
+            <br>
+            <div class="inputclear">
+                <div class="add">
+                    <input type="submit" value="UPDATE" id="add">
+                </div>
+                <div class="clear">
+                    <input type="reset" value="Clear" id="clear">
+                </div>
+            </div>
+            </form>
+            </div>
+        
     </div>
     </div>
     

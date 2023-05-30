@@ -9,6 +9,23 @@
     <title>Home admin</title>
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
+<?php
+    include("db.connection.php");
+    session_start();
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $bookname = $_POST['booknames'];
+
+        $query = "DELETE FROM addbooks where bookname = '$bookname'";
+
+        if (mysqli_query($conn, $query)) {
+            echo "<script type='text/javascript'> alert('Delete books Successfully!')</script>";
+        } else {
+            echo "<script type='text/javascript'> alert('Error Delete books!')</script>";
+        }
+        
+    }  
+?>
 <body>
    <div class="all">
     <div class="header">
@@ -48,9 +65,10 @@
     <div class="ddownadrticle">
         <h1>Delete Books</h1>
         <div class="form">
-            <form action="">
-        <div class="artikel">Book ID</label>
-            <input type="text" id="bookname">
+            <form method="POST">
+        <div class="artikel">
+            <label for="Bookname">Bookname</label>
+            <input type="text" id="bookname" name="booknames">
             <div class="subclear">
                 <input type="submit" value="Delete" id="delete">
            

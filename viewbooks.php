@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +47,36 @@
         </ul>
     </div>
     <div class="ddownadrticle">
-        <h1>hello world</h1>
+        <table>
+            <tr>
+                <th>ISBN</th>
+                <th>SERIES</th>
+                <th>BOOK NAME</th>
+                <th>AUTHOR</th>
+                <th>BOOK QUANTITY</th>
+            </tr>
+            <?php
+                require 'db.connection.php';
+
+                $sql = "SELECT isbn, bookid, bookname, author, bookquantity from addbooks";
+                $result = $conn-> query($sql);
+
+                if($result-> num_rows > 0 ){
+                    while ($row = $result-> fetch_assoc() ) {
+                        echo "<tr><td>". $row["isbn"] .  "<td>". $row["bookid"] .
+                         "<td>". $row["bookname"].
+                          "<td>". $row["author"].
+                         "<td>". $row["bookquantity"]. "<tr><td>";
+
+                    }
+                    echo "</table>";
+                }
+                else{
+                    echo "0 result";
+                }
+                $conn-> close();
+            ?>
+        </table>
     </div>
     </div>
     

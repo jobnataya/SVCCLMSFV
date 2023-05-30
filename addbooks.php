@@ -1,7 +1,9 @@
 <?php
-    include("db.connection.php");
+   require 'db.connection.php';
+    session_start();
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+    {
         $date = $_POST["date"];
         $isbn = $_POST["isbn"];
         $bookid = $_POST["bookid"];
@@ -9,24 +11,16 @@
         $author = $_POST["author"];
         $bookquantity = $_POST["bookquantity"];
 
-        if  (isset($_FILES["image"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK){
-            $file = $_FILES["image"];
-            $fileName = $file["name"];
-            $fileTmpPath = $file["tmp_name"];
-            $fileSize = $file["size"];  
+        
+        if (!empty($isbn) && !empty($bookid)) {
+            $query = "INSERT INTO addbooks (`date`,`isbn`,`bookid`,`bookname`,`author`,`bookquantity`) values ('$date','$isbn','$bookid','$bookname','$author','$bookquantity')";
+            mysqli_query($conn, $query);
 
-            $fileData = file_get_contents($fileTmpPath);
-
-            $query = "INSERT INTO addbooks (`date`,`isbn`,`bookid`,`bookname`,`author`,`bookcover`,`bookquantity`) values ('$date','$isbn','$bookid','$bookname','$author','$fileData','$bookquantity')";
-
-            mysqli_query($conn, $query); 
-
-         echo "<script type = 'text/javascript'> alert ('Successfully Register')</script>";
-
-    }else{
-        "<script type = 'text/javascript'> alert ('not Register')</script>";
+            echo "<script type = 'text/javascript'> alert ('Add books Successfully!')</script>";
+        }else{
+            echo "<script type = 'text/javascript'> alert ('Fill up all form add books')</script>";
+        }
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,14 +72,14 @@
     <div class="ddownadrticle">
         <h1>Add books</h1>
         <div class="forms">
-        <form action="addbooks.php" method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             <label for="dateentry">Date of Entry</label>
             <input type="date" name="date">
             <br>
             <label for="isbn">ISBN</label>
             <input type="text" id="isbn" name="isbn">
             <br>
-            <label for="bookid">Book ID</label>
+            <label for="bookid">SERIES</label>
             <input type="text" id="bookid" name="bookid">
             <br>
             <label for="Booke Name">Book Name</label>
@@ -93,9 +87,6 @@
             <br>
             <label for="Author">Author</label>
             <input type="text" name="author" id="Author" >
-            <br>
-            <label for="bookcover">Book Cover</label>
-            <input type="file" id="input" name="image">
             <br>
             <label for="bookquantity">Book Quantity</label>
             <input type="number" name="bookquantity" id="Quantity">
@@ -108,8 +99,9 @@
                     <input type="reset" value="Clear" id="clear">
                 </div>
             </div>
+            </form>
             </div>
-        </form>
+        
     </div>
     </div>
     

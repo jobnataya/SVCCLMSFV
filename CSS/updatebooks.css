@@ -128,3 +128,117 @@ nav ul li i{
     padding: 1px;
     border-bottom: 2px solid red;
 }
+..ddownadrticle{ 
+    outline: auto;
+    position: relative;
+    margin-top: 40px;
+    margin-left: 500px;
+    height: 360px;
+    width: 600px;
+}
+.ddownadrticle h1{
+    padding-top: 10px;
+    padding-left: 220px;
+    outline: auto;
+    height: 60px;
+}
+.addbooks{
+    padding: 1px;
+    border-bottom: 2px solid red;
+}
+.centerarticle ul li a:hover{
+    background-color: rgb(0, 107, 9);
+}
+.ddownadrticle h1{
+    font-family: monospace;
+}
+.ddownadrticle{
+
+}
+.ddownadrticle .forms{
+    padding-top: 35px;
+    padding-left: 20px;   
+    line-height: 35px;
+}
+.ddownadrticle .inputclear{
+    justify-content: space-evenly;
+    width: 200px;
+    display: flex;
+    margin: 0 auto;
+}
+.ddownadrticle #isbn{
+    border-radius: 40px;
+    margin-left: 40px;
+    height: 30px;
+    width: 350px;
+    background-color: green;
+    color: white;
+    border-style: none;
+}
+.ddownadrticle #bookname{
+    border-radius: 40px;
+    height: 30px;
+    width: 350px;
+    background-color: green;
+    color: white;
+    border-style: none;
+}
+.ddownadrticle #Author{
+    border-radius: 40px;
+    height: 30px;
+    width: 350px;
+    margin-left: 30px;
+    background-color: green;
+    color: white;
+    border-style: none;
+}
+.ddownadrticle #Quantity{
+    border-radius: 40px;
+    height: 30px;
+    width: 70px;
+    background-color: green;
+    color: white;
+    border-style: none;
+}
+.ddownadrticle #bookid{
+    border-radius: 40px;
+    height: 30px;
+    width: 350px;
+    margin-left: 20px;
+    background-color: green;
+    color: white;
+    border-style: none;
+}
+.inputclear{
+    padding-bottom: 5px;
+}
+.inputclear #add{
+    height: 40px;
+    width: 60px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.inputclear #clear{
+    height: 40px;
+    width: 50px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.inputclear #add:hover{
+    background-color: rgb(6, 207, 6);
+}
+.inputclear #clear:hover{
+    background-color: rgb(250, 140, 140);
+}
+.ddownadrticle{ 
+    outline: auto;
+    position: relative;
+    margin-top: 40px;
+    margin-left: 500px;
+    height: 360px;
+    width: 600px;
+}

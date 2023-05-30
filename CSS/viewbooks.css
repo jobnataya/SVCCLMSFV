@@ -115,10 +115,11 @@ nav ul li i{
     transition: 0.3s;
 }
 .ddownadrticle{
-    outline: auto;
     position: relative;
     margin-top: 20px;
     margin-left: 262px;
+    height: 400px;
+    overflow: auto;
 }
 .centerarticle ul li a:hover{
     padding: 1px;
@@ -127,4 +128,22 @@ nav ul li i{
 .viewbooks{
     padding: 1px;
     border-bottom: 2px solid red;
+}
+table{
+    width: 100%;
+}
+table, th{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: white;
+}
+table, tr{
+    border: 1px solid black;
+}
+table, td{
+    border-right: 1px solid black;
+   
 }
