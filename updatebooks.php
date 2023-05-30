@@ -24,7 +24,7 @@
 
         
 
-        $query = "UPDATE addbooks SET date = '$date', isbn = '$isbn' , bookname = '$bookname', author = '$author', bookquantity = '$bookquantity' WHERE bookname = '$bookname'";
+        $query = "UPDATE addbooks SET date = '$date', isbn = '$isbn', bookid = $bookid, bookname = '$bookname', author = '$author', bookquantity = '$bookquantity' WHERE bookname = '$bookname'";
         
         if (mysqli_query($conn, $query)) {
             echo "<script type='text/javascript'> alert('Update books Successfully!')</script>";
