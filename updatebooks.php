@@ -24,7 +24,7 @@
 
         
 
-        $query = "UPDATE addbooks SET date = '$date', isbn = '$isbn', bookid = $bookid, bookname = '$bookname', author = '$author', bookquantity = '$bookquantity' WHERE bookname = '$bookname'";
+        $query = "UPDATE addbooks SET date = '$date', isbn = '$isbn', bookid = '$bookid', bookname = '$bookname', author = '$author', bookquantity = '$bookquantity' WHERE bookname = '$bookname'";
         
         if (mysqli_query($conn, $query)) {
             echo "<script type='text/javascript'> alert('Update books Successfully!')</script>";
@@ -54,7 +54,7 @@
     <div class="leftarticle">
         <nav>
             <ul>
-                <li><a href=""><i class="fa-regular fa-id-card"></i>Profile</a></li>
+                <li><a href="Profile.php"><i class="fa-regular fa-id-card"></i>Profile</a></li>
                 <li><a href=""  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href=""><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href=""> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
@@ -65,7 +65,7 @@
     <div class="centerarticle">
         <ul>
             <li><a href="addbooks.php">ADD BOOKS</a></li>
-            <li class="updatebooks"><a href="updatebooks.html">UPDATE BOOKS</a></li>
+            <li class="updatebooks"><a href="updatebooks.php">UPDATE BOOKS</a></li>
             <li><a href="viewbooks.php">VIEW BOOKS</a></li>
             <li><a href="deletebooks.php">DELETE BOOKS</a></li>
         </ul>

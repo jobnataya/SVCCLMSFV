@@ -46,7 +46,7 @@
     <div class="leftarticle">
         <nav>
             <ul>
-                <li><a href=""><i class="fa-regular fa-id-card"></i>Profile</a></li>
+                <li><a href="Profile.php"><i class="fa-regular fa-id-card"></i>Profile</a></li>
                 <li><a href=""  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href=""><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href=""> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
@@ -59,7 +59,7 @@
             <li><a href="addbooks.php">ADD BOOKS</a></li>
             <li><a href="updatebooks.php">UPDATE BOOKS</a></li>
             <li><a href="viewbooks.php">VIEW BOOKS</a></li>
-            <li class="deletebooks"><a href="deletebooks.html">DELETE BOOKS</a></li>
+            <li class="deletebooks"><a href="deletebooks.php">DELETE BOOKS</a></li>
         </ul>
     </div>
     <div class="ddownadrticle">

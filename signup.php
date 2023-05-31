@@ -48,7 +48,7 @@
         <div class="text"><h1>SAINT VINCENT  COLLEGE OF CABUYAO</h1></div>
         </div>
         <div class="article">
-            <form method="POST" action="adminhome.php">
+            <form method="POST">
             <div class="center">
             <div class="left">
                 <div class="BItext">

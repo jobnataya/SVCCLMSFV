@@ -30,7 +30,7 @@
     <div class="leftarticle">
         <nav>
             <ul>
-                <li><a href=""><i class="fa-regular fa-id-card"></i>Profile</a></li>
+                <li><a href="Profile.php"><i class="fa-regular fa-id-card"></i>Profile</a></li>
                 <li><a href=""  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href=""><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href=""> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
@@ -42,10 +42,16 @@
         <ul>
             <li><a href="addbooks.php">ADD BOOKS</a></li>
             <li><a href="updatebooks.php">UPDATE BOOKS</a></li>
-            <li class="viewbooks"><a href="viewbooks.html">VIEW BOOKS</a></li>
+            <li class="viewbooks"><a href="viewbooks.php">VIEW BOOKS</a></li>
             <li><a href="deletebooks.php">DELETE BOOKS</a></li>
         </ul>
     </div>
+<div class="searchs">
+        <form method="GET" action="testing.php">
+        <input type="text" name="search" placeholder="Search..." id="search">
+        <input type="submit" value="Search">
+        </form>
+        </div>
     <div class="ddownadrticle">
         <table>
             <tr>
@@ -79,6 +85,5 @@
         </table>
     </div>
     </div>
-    
 </body>
 </html>

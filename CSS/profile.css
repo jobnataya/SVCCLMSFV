@@ -121,12 +121,19 @@ nav ul li i{
 .ddownadrticle{
     position: relative;
     margin-top: 20px;
-    margin-left: 262px;
+    margin-left: 450px;
     height: 400px;
-    width: 1100px;
+    width: 700px;
     outline: auto;
 }
 .ddownadrticle h1{
-    padding-top: 150px;
+    outline: auto;
+    height: 75px;
+    padding-top: 20px;
+    text-align: center;
    font-family: monospace;
+}
+table{
+    width: 250px;
+    outline: auto;
 }

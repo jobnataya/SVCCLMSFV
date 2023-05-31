@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/profile.css">
-    <title>Home admin</title>
+    <title>Profile</title>
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -38,7 +38,23 @@
         </nav>
     </div>    
     <div class="ddownadrticle"> 
-        <h1>Hello</h1>
+        <h1>Profile</h1>
+        <div class="table">
+            <table>
+            <tr>
+                <th>First Name:</th>
+                <td>Job Raizon</td>
+            </tr>
+            <tr>
+                <th>Middle Name:</th>
+                <td>Paz</td>
+            </tr>
+            <tr>
+                <th>Last Name:</th>
+                <td>Nataya</td>
+            </tr>
+        </table>
+        </div>
     </div>
     </div>
     

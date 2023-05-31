@@ -118,7 +118,7 @@ nav ul li i{
     position: relative;
     margin-top: 20px;
     margin-left: 262px;
-    height: 400px;
+    height: 300px;
     overflow: auto;
 }
 .centerarticle ul li a:hover{
@@ -147,3 +147,15 @@ table, td{
     border-right: 1px solid black;
    
 }
+.searchs{
+    padding: 10px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    margin-left: 260px;
+}
+.searchs #search{
+    padding: 10px;
+}
+
