@@ -3,7 +3,7 @@ include("db.connection.php");
 
 $query = $_GET['query'];
 
-$sql = "SELECT * FROM addbooks WHERE bookid or bookname or author LIKE '%query%'";
+$sql = "SELECT * FROM addbooks WHERE  bookname  LIKE '%query%'";
 $result = $result = $conn->query($sql);
 
 // Display the search results

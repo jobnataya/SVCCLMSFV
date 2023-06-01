@@ -38,22 +38,26 @@
         </nav>
     </div>    
     <div class="ddownadrticle"> 
-        <h1>Profile</h1>
-        <div class="table">
-            <table>
-            <tr>
-                <th>First Name:</th>
-                <td>Job Raizon</td>
-            </tr>
-            <tr>
-                <th>Middle Name:</th>
-                <td>Paz</td>
-            </tr>
-            <tr>
-                <th>Last Name:</th>
-                <td>Nataya</td>
-            </tr>
-        </table>
+        <?php
+        include("db.connection.php");
+            $sql = "SELECT * FROM adminlogin";
+
+            $result = $conn->query($sql);
+
+        // Check if the query returned any rows
+        if ($result->num_rows > 0) {
+            // Count the number of rows (i.e., number of students)
+            $numStudents = $result->num_rows;
+
+            // Display the number of students registered
+            echo "Total students registered: " . $numStudents;
+        } else {
+            echo "No students found.";
+        }
+
+        // Close the database connection
+        $conn->close();
+        ?>
         </div>
     </div>
     </div>

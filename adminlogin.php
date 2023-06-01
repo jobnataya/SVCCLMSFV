@@ -25,6 +25,7 @@
                 if ($query && mysqli_num_rows($query)>0) 
                 {
                     $user_data = mysqli_fetch_assoc($query);
+                    
 
                     if ($user_data['pword'] == $pword) 
                     {
@@ -52,9 +53,9 @@
                 <h2>Admin Login</h2>
                 <div class="form">
                 <label for="Username">Username</label><br>
-                <input type="text" id="adminform" name="uname" ><br>
+                <input type="text" id="adminform" name="uname" required><br>
                 <label for="Password">Password</label><br>
-                <input type="password" id="adminform" name="pword" ><br>
+                <input type="password" id="adminform" name="pword" required><br>
                 <div class="submits">
                 <input type="submit" value="Log in" id="submit"><br>
             </div>

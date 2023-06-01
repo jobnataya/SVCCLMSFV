@@ -157,5 +157,25 @@ table, td{
 }
 .searchs #search{
     padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: green;
+    color: white;
+}
+::-webkit-input-placeholder {
+
+    color: rgb(237, 232, 232);
+    
+
+}
+.searchs #searchbutton{
+    border-style: none;
+    background-color: rgb(13, 255, 0);
+    width: 70px;
+    height: 35px;
+    color: rgb(68, 68, 68);
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 10px;
 }
 

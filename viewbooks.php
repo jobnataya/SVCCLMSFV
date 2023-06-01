@@ -49,7 +49,7 @@
 <div class="searchs">
         <form method="GET" action="testing.php">
         <input type="text" name="search" placeholder="Search..." id="search">
-        <input type="submit" value="Search">
+        <input type="submit" value="Search" id="searchbutton">
         </form>
         </div>
     <div class="ddownadrticle">
@@ -85,5 +85,6 @@
         </table>
     </div>
     </div>
+    
 </body>
 </html>
