@@ -33,23 +33,23 @@
     border: 1px rgb(0, 0, 0) solid;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
     background: white;
-    width: 400px;
-    height: 350px;
+    width: 460px;
+    height: 400px;
     margin: 0 auto;
 }
 .center{
-    margin-top: 120px;
+    margin-top: 100px;
 }
 .adminlogin h2{
     color: white;
-    padding-top: 15px;
+    padding-top: 26px;
     text-align: center;
-    height: 60px;
+    height: 80px;
     background: rgb(0, 167, 0);
 }
 .center .adminlogin .form{
-    padding-left: 10px;
-    padding-top: 20px;
+    padding-left: 50px;
+    padding-top: 30px;
     line-height: 30px;
 }
 .center .adminlogin .form #adminform{

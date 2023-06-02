@@ -55,7 +55,7 @@
         <nav>
             <ul>
                 <li><a href="Profile.php"><i class="fa-regular fa-id-card"></i>Profile</a></li>
-                <li><a href=""  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
+                <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href=""><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href=""> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
                 <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>

@@ -29,14 +29,22 @@
     <div class="leftarticle">
         <nav>
             <ul>
-                <li><a href=""><i class="fa-regular fa-id-card"></i>Profile</a></li>
-                <li><a href=""  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
+                <li><a href="Profile.php"><i class="fa-regular fa-id-card"></i>Profile</a></li>
+                <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href=""><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href=""> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
                 <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
         </nav>
     </div>    
+    <div class="centerarticle">
+        <ul>
+            <li><a href="addbooks.php">ADD BOOKS</a></li>
+            <li><a href="updatebooks.php">UPDATE BOOKS</a></li>
+            <li><a href="viewbooks.php">VIEW BOOKS</a></li>
+            <li><a href="deletebooks.php">DELETE BOOKS</a></li>
+        </ul>
+    </div>
     <div class="ddownadrticle"> 
         <?php
         include("db.connection.php");
@@ -50,7 +58,7 @@
             $numStudents = $result->num_rows;
 
             // Display the number of students registered
-            echo "Total students registered: " . $numStudents;
+            echo   $numStudents;
         } else {
             echo "No students found.";
         }

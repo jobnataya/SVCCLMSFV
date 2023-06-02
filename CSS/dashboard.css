@@ -19,7 +19,7 @@
     height: 80px;
     width: 80px;
 }
-.text{
+.header .text{
     padding-top: 35px;
 }
 .icon img{
@@ -120,20 +120,82 @@ nav ul li i{
 }
 .ddownadrticle{
     position: relative;
-    margin-top: 60px;
-    margin-left: 450px;
-    height: 300px;
-    width: 700px;
-    outline: auto;
+    margin-top: 20px;
+    margin-left: 256px;
+    height: 400px;
+    width: 1100px;
+    display: flex;
+    padding-top: 45px;
 }
-.ddownadrticle h1{
+.ddownadrticle .numstu{
+   outline: auto;
+   width: 400px;
+   height: 250px;
+   margin: 20px;
+}
+.ddownadrticle .numbooks{
     outline: auto;
-    height: 75px;
-    padding-top: 20px;
+    width: 500px;
+    height: 250px;
+    margin: 20px;
+}
+.ddownadrticle .numissue{
+    outline: auto;
+    width: 400px;
+    height: 250px;
+    margin: 20px;
+}
+.ddownadrticle .numreturn{
+    outline: auto;
+    width: 400px;
+    height: 250px;
+    margin: 20px;
+}
+.ddownadrticle .text{
     text-align: center;
-   font-family: monospace;
+    height: 100px;
+    padding-top: 15px;
+    font-family: monospace;
+    background-color: rgb(71, 233, 7);
 }
-table{
-    width: 250px;
+.ddownadrticle .text h1{
+    color: rgb(0, 64, 0);
+}
+.ddownadrticle .numstu .content{
+    position: relative;
+    height: 175px;
+    width: 240px;
+    padding-top: 60px;
+    padding-left: 100px;
+}
+.ddownadrticle .numbooks .content{
+    position: relative;
+    height: 175px;
+    width: 240px;
+    padding-top: 60px;
+    padding-left: 100px;
+}
+.ddownadrticle .numissue .content{
+    position: relative;
+    height: 175px;
+    width: 240px;
+    padding-top: 60px;
+    padding-left: 100px;
+}
+.ddownadrticle .numreturn .content{
+    position: relative;
+    height: 175px;
+    width: 240px;
+    padding-top: 60px;
+    padding-left: 100px;
+}
+.ddownadrticle .content h1{
+    font-family: monospace;
+    font-size: 50px;
+    width: 50px;
+}
+.ddownadrticle .content{
+    background: rgba(164, 255, 147, 0.982);
     outline: auto;
 }
+
