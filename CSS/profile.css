@@ -51,6 +51,9 @@ nav ul{
 nav ul li{
    line-height: 74px;
 }
+.Profile{
+    border-left: 5px solid  rgb(1, 212, 30);
+}
 nav ul li a {
     border-bottom: 2px solid rgb(0, 0, 0);
     display: block;

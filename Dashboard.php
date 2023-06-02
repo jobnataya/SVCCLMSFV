@@ -30,7 +30,7 @@
         <nav>
             <ul>
                 <li><a href="Profile.php"><i class="fa-regular fa-id-card"></i>Profile</a></li>
-                <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
+                <li class="cdashboard"><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href=""><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href=""> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
                 <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
@@ -46,7 +46,9 @@
         </ul>
     </div>
     
-    <div class="ddownadrticle">   
+    <div class="ddownadrticle"> 
+        <h1>Dashboard</h1>  
+        <div class="allddown">
         <div class="numstu">
            <div class="text">
            <h1>Number of Students</h1>
@@ -157,6 +159,7 @@
         $conn->close();
         ?>
             </div>
+          </div>
           </div>
           </div>
     </div>

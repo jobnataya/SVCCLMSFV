@@ -64,6 +64,9 @@ nav ul li a {
     color: white;
     padding-left: 20px;
   }
+.cdashboard{
+    border-left: 5px solid  rgb(1, 212, 30);
+}
 nav ul li a:hover{
     background: rgb(1, 212, 30);
 }
@@ -121,11 +124,14 @@ nav ul li i{
 .ddownadrticle{
     position: relative;
     margin-top: 20px;
-    margin-left: 256px;
+    margin-left: 254px;
     height: 400px;
     width: 1100px;
-    display: flex;
     padding-top: 45px;
+}
+.ddownadrticle h1{
+    text-align: center;
+    font-family: monospace;
 }
 .ddownadrticle .numstu{
    outline: auto;
@@ -197,5 +203,8 @@ nav ul li i{
 .ddownadrticle .content{
     background: rgba(164, 255, 147, 0.982);
     outline: auto;
+}
+.ddownadrticle .allddown{
+    display: flex;
 }
 
