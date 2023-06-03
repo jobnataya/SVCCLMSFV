@@ -73,10 +73,10 @@
         // Display the search results
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo "<tr><td>". $row["isbn"] .  "<td>". $row["bookid"] .
-                "<td>". $row["bookname"].
-                 "<td>". $row["author"].
-                "<td>". $row["bookquantity"]. "<tr><td>";
+                 echo "<tr><td>". $row["isbn"] .  "<td>". $row["bookid"] .
+                         "<td>". $row["bookname"].
+                          "<td>". $row["author"].
+                         "<td>". $row["bookquantity"]. "<tr><td>";
             }
         } else {
             echo "No results found.";
