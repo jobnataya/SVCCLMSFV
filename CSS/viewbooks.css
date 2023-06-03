@@ -130,22 +130,27 @@ nav ul li i{
     border-bottom: 2px solid red;
 }
 table{
+    border-collapse: collapse;
     width: 100%;
 }
-table, th{
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background: white;
+table, th td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
-table, tr{
-    border: 1px solid black;
+table, th{
+    background-color: #4CAF50;
+            color: white;
+}
+tr:nth-child(even) {
+    background-color: #16c74b;
 }
 table, td{
     border-right: 1px solid black;
    
+}
+tr:hover {
+    background-color: #19f119;
 }
 .searchs{
     padding: 10px;
