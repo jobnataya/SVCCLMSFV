@@ -1,7 +1,3 @@
-<?php
-session_start();
-include("db.connection.php"); 
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +6,7 @@ include("db.connection.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CSS/adminhome.css">
+    <link rel="stylesheet" href="CSS/viewbooks.css">
     <title>Home admin</title>
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
@@ -29,14 +25,14 @@ include("db.connection.php");
         </div>
         <div class="texticon"><h2>Online Library Management System</h2></div>
      </div>
-        <div class="logout"><a href="logout.php"><p>Log out</p></a></div>
+     <div class="logout"><a href="logout.php"><p>Log out</p></a></div>
     </div>
     <div class="leftarticle">
         <nav>
             <ul>
                 <li><a href="Profile.php"><i class="fa-regular fa-id-card"></i>Profile</a></li>
                 <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
-                <li><a href=""><i class="fa-solid fa-school"></i>Student Account</a></li>
+                <li class="csa"><a href=""><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href=""> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
                 <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
@@ -50,9 +46,43 @@ include("db.connection.php");
             <li><a href="deletebooks.php">DELETE BOOKS</a></li>
         </ul>
     </div>
-    
-    <div class="ddownadrticle"> 
-           <h1>Welcome <?php echo $_SESSION['uname']; ?></h1>
+<div class="searchs">
+        <form method="GET" action="testing.php">
+        <input type="text" name="search" placeholder="Search..." id="search">
+        <input type="submit" value="Search" id="searchbutton">
+        </form>
+        </div>
+    <div class="ddownadrticle">
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last name</th>
+                <th>Year</th>
+                <th>ID Number</th>
+                <th>User type</th>
+            </tr>
+            <?php
+                require 'db.connection.php';
+
+                $sql = "SELECT fname, lname, year, idnumber, usertype from svcclms";
+                $result = $conn-> query($sql);
+
+                if($result-> num_rows > 0 ){
+                    while ($row = $result-> fetch_assoc() ) {
+                        echo "<tr><td>". $row["fname"] .  "<td>". $row["lname"] .
+                         "<td>". $row["year"].
+                          "<td>". $row["idnumber"].
+                         "<td>". $row["usertype"]. "<tr><td>";
+
+                    }
+                    echo "</table>";
+                }
+                else{
+                    echo "0 result";
+                }
+                $conn-> close();
+            ?>
+        </table>
     </div>
     </div>
     

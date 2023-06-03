@@ -47,25 +47,23 @@
     </div>
     <div class="ddownadrticle"> 
         <?php
+       
+        session_start();
         include("db.connection.php");
-            $sql = "SELECT * FROM adminlogin";
-
-            $result = $conn->query($sql);
-
-        // Check if the query returned any rows
-        if ($result->num_rows > 0) {
-            // Count the number of rows (i.e., number of students)
-            $numStudents = $result->num_rows;
-
-            // Display the number of students registered
-            echo   $numStudents;
-        } else {
-            echo "No students found.";
+        // Check if the user is logged in
+        if (!isset($_SESSION['uname'])) {
+            header('Location: Profile.php');
+            exit();
         }
-
-        // Close the database connection
-        $conn->close();
+        
+        // Retrieve user data using the username
+        $username = $_SESSION['uname'];
+        
+        // Display user data
+        echo "Welcome, $username!";
+        // Display other user information
         ?>
+        
         </div>
     </div>
     </div>
