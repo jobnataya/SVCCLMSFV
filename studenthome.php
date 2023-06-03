@@ -14,7 +14,7 @@
             <div class="logo"><img src="IMAGES/Logo.png" alt=""></div>
             <div class="textlogo">
                  <h1> Saint Vincent College of Cabuyao</h1>
-                 <div class="logout"><a href="logoutforstudents.php"><p>Log out</p></a></div>
+                 <div class="logout"><a href="logoutforstudents.php"><p>Logout</p></a></div>
             </div>
         </div>
         <div class="article">

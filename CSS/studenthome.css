@@ -21,9 +21,6 @@
     height: 10px;
     display: flex;
 }
-.all .header .textlogo .logout{
-    margin: 10px;
-}
 .all .header .textlogo h1{
     font-family: monospace;
     color: white;
@@ -38,6 +35,8 @@
 .article .leftside{
     width: 230px;
     position: relative;
+    margin-top: 130px;
+    
 }
 .article .leftside .navleft ul{
     list-style: none;
@@ -60,4 +59,24 @@
 }
 .article .leftside .navleft ul li a:hover{
     background: rgb(0, 167, 0);
+}
+.all .header .textlogo .logout{
+    margin-left: 10px;
+}
+.all .header .textlogo .logout a{
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    display: block;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: normal;
+    background-color: red;
+    width: 65px;
+    height: 30px;
+    padding-top: 5px;
+    transition: 0.3s;
+}
+.all .header .textlogo .logout a:hover{
+    background-color: black;
 }
