@@ -1,0 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.all .header{
+    display: flex;
+    background: rgb(0, 167, 0);
+    justify-content: space-between;
+}
+.all .header .logo{
+
+}
+.all .header .logo img{
+    width: 100px;
+    height: 100px;
+}
+.all .header .textlogo{
+    margin-top: 30px;
+    margin-right: 20px;
+    height: 10px;
+    display: flex;
+}
+.all .header .textlogo .logout{
+    margin: 10px;
+}
+.all .header .textlogo h1{
+    font-family: monospace;
+    color: white;
+}
+.article .leftside i{
+   position: absolute;
+   left: 10px;
+   margin-right: 1px;
+   margin-top: 50px;
+   display: flex;
+}
+.article .leftside{
+    width: 230px;
+    position: relative;
+}
+.article .leftside .navleft ul{
+    list-style: none;
+    
+}
+.article .leftside .navleft ul li{
+    line-height: 100px;
+    border: 1px solid black;
+}
+.article .leftside .navleft ul li a {
+    text-decoration: none;    
+    color: white;
+    display: block;
+    background: green;
+    transition: 0.3s;
+    text-align: center;
+    font-family: monospace;
+    font-size: 20px;
+    padding-left: 25px;
+}
+.article .leftside .navleft ul li a:hover{
+    background: rgb(0, 167, 0);
+}

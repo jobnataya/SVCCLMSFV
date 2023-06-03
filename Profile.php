@@ -31,9 +31,9 @@
             <ul>
                 <li class="Profile"><a href="Profile.php"><i class="fa-regular fa-id-card"></i>Profile</a></li>
                 <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
-                <li><a href=""><i class="fa-solid fa-school"></i>Student Account</a></li>
-                <li><a href=""> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
-                <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
+                <li><a href="studentaccount.php"><i class="fa-solid fa-school"></i>Student Account</a></li>
+                <li><a href="issuebooks.php"> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
+                <li><a href="return"><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
         </nav>
     </div>    
@@ -60,7 +60,13 @@
         $username = $_SESSION['uname'];
         
         // Display user data
-        echo "Welcome, $username!";
+        $sql = "SELECT * FROM adminlogin WHERE uname = '$username'";
+        $query = mysqli_query($conn, $sql);
+        
+        while ( $row = mysqli_fetch_assoc($query )) {
+            echo $row['fname'];     
+            echo $row['lname'];
+        }
         // Display other user information
         ?>
         

@@ -7,39 +7,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="CSS/login.css">
 </head>
-<?php
-session_start();
-include("db.connection.php");
 
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-    $uname = $_POST['uname'];
-    $pword = $_POST['pword'];
-
-    if (!empty($uname) && !empty($pword)) 
-    {
-        $query = "SELECT * FROM svcclms WHERE uname = '$uname' LIMIT 1 ";
-        $result = mysqli_query($conn, $query);
-
-        if($result)
-        {
-            if($result && mysqli_num_rows($result)> 0)
-            {
-                $user_data = mysqli_fetch_assoc($result);
-
-                if ($user_data['pword'] == $pword) 
-                {
-                    header("Location:home.php");
-                    die;
-                }
-            }
-        }
-        echo "<script type = 'text/javascript'> alert ('Wrong Username!')</script>";
-    }else{
-        echo "<script type = 'text/javascript'> alert ('Wrong Password!')</script>";
-    }
-}
-?>
 <body style="background:url(IMAGES/books.jpg)">
 <div class="boddys"style="background:url(IMAGES/books.jpg)">
     <div class="header">
@@ -50,14 +18,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <div class="article">
         <div class="center">
             <h1>Login</h1>
-            <form method="POST">
+            <form method="post" action="index.php"> 
                 <input type="text" placeholder="Username:" id="input" name="uname">
                 <br>
                 <input type="password" placeholder="Password:" id="input" name="pword">
                 <br>
                 <a href="" id="forget">Forget Password?</a>
                 <br>
-                <input type="submit" value="Login" id="submit">
+                <input type="submit" value="Login" id="submit" name="login">
                 <br>
                 <p id="Signup">Don't have an Account? <a href="signup.php" id="sign" >Sign up</a></p>
             </form>
@@ -73,5 +41,31 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         <div class="text5">This project serves as a culmination of the students' knowledge and skills in database systems, showcasing their ability to create a practical solution that can enhance the operations and services of a library.</div>
     </div>
 </div>
+<?php
+    session_start();
+    include("db.connection.php");
+    if (isset($_POST['login'])) {
+        $uname = $_POST['uname'];
+        $pword = $_POST['pword'];
+
+        $select = mysqli_query($conn, "SELECT * FROM svcclms WHERE uname = '$uname' AND pword = '$pword'");
+
+
+        $row = mysqli_fetch_array($select);
+
+        if (is_array($row)) {
+            $_SESSION["uname"] = $row['uname'];
+            $_SESSION["pword"] = $row['pword'];
+        } else {
+            echo '<script type = "text/javascript">';
+            echo 'alert("Invalid Username or Password"); ';
+            echo 'window.location.href ="index.php"';
+            echo '</script>';
+        }
+    }
+    if (isset($_SESSION["uname"])) {
+        header("Location:studenthome.php");
+    }
+    ?>
 </body>
 </html>
