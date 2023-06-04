@@ -1,3 +1,9 @@
+<?php
+include("db.connection.php");
+session_start(); 
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +14,8 @@
     <link rel="stylesheet" href="CSS/studenthome.css">
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <div class="all">
+<body class="all" style="background:url(IMAGES/books.jpg)">
+    <div>
         <div class="header">
             <div class="logo"><img src="IMAGES/Logo.png" alt=""></div>
             <div class="textlogo">
@@ -21,13 +27,15 @@
             <div class="leftside">
                 <div class="navleft">
                     <ul>
-                        <li ><a href=""><i class="fa-regular fa-user fa-2xl"></i>Profile</a></li>
+                        <li ><a href="studentprofile.php"><i class="fa-regular fa-user fa-2xl"></i>Profile</a></li>
                         <li><a href=""><i class="fa-solid fa-book fa-2xl"></i>Viewbooks</a></li>
                         <li><a href=""> <i class="fa-solid fa-rotate-left fa-2xl"></i>Borrowed Books</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="rightside"></div>
+            <div class="rightside">
+            <h1>Hello,  <?php echo $_SESSION['uname']; ?> We're delighted to have you back in our virtual library. Let's dive into the world of books</h1>
+            </div>
         </div>
         <div class="footer"></div>
     </div>
