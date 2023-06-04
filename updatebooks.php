@@ -78,19 +78,19 @@
             <input type="date" name="date">
             <br>
             <label for="isbn">ISBN</label>
-            <input type="text" id="isbn" name="isbn">
+            <input type="text" id="isbn" maxlength="13" name="isbn">
             <br>
             <label for="bookid">SERIES</label>
-            <input type="text" id="bookid" name="bookid">
+            <input type="text" id="bookid" maxlength="20" name="bookid">
             <br>
             <label for="Booke Name">Book Name</label>
             <input type="text" id="bookname" name="bookname">
             <br>
             <label for="Author">Author</label>
-            <input type="text" name="author" id="Author" >
+            <input type="text" name="author" maxlength="20" id="Author" >
             <br>
             <label for="bookquantity">Book Quantity</label>
-            <input type="number" name="bookquantity" id="Quantity">
+            <input type="number" name="bookquantity" min="1" max="100" id="Quantity">
             <br>
             <div class="inputclear">
                 <div class="add">

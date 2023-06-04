@@ -123,11 +123,10 @@ nav ul li i{
 }
 .ddownadrticle{
     position: relative;
-    margin-top: 60px;
+    margin-top: 150px;
     margin-left: 450px;
     height: 300px;
     width: 700px;
-    outline: auto;
 }
 .ddownadrticle h1{
     outline: auto;
@@ -137,6 +136,25 @@ nav ul li i{
    font-family: monospace;
 }
 table{
-    width: 250px;
-    outline: auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+table, th{
+    background-color: #4CAF50;
+            color: white;
+}
+tr:nth-child(even) {
+    background-color: #16c74b;
+}
+table, td{
+    border-right: 1px solid black;
+   
+}
+tr:hover {
+    background-color: #19f119;
 }

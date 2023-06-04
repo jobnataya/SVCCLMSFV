@@ -46,7 +46,15 @@
         </ul>
     </div>
     <div class="ddownadrticle"> 
-        <?php
+    <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last name</th>
+                <th>Year</th>
+                <th>BirthDay</th>
+                <th>Contact Number</th>
+            </tr>
+            <?php
        
         session_start();
         include("db.connection.php");
@@ -64,13 +72,15 @@
         $query = mysqli_query($conn, $sql);
         
         while ( $row = mysqli_fetch_assoc($query )) {
-            echo $row['fname'];     
-            echo $row['lname'];
+            echo "<tr><td>". $row["fname"] .  "<td>". $row["lname"] .
+                 "<td>". $row["year"].
+                 "<td>". $row["bday"]. 
+                 "<td>". $row["contactnumber"].
+                 "<tr><td>";
         }
         // Display other user information
         ?>
-        
-        </div>
+        </table>
     </div>
     </div>
     

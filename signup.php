@@ -78,9 +78,9 @@
                     <h3>Student Basic Information</h3>
                     </div>
                         <label for="Year" id="textcc" >Year:</label>
-                        <input type="text" placeholder="Year" id="inputc" name="year" required><br>
+                        <input type="text" placeholder="Year" maxlength="10" id="inputc" name="year" required><br>
                         <label for="Id#" id="textcc">ID Number</label>
-                        <input type="text" placeholder="ID#"id="inputc" name="idnumber" required> <br>
+                        <input type="text" placeholder="ID#"id="inputc" maxlength="12" name="idnumber" required> <br>
                         <label for="Department" id="textcc">Department:</label>
                         <select name="department" id="department" required>
                             <option value="BSIT">BSIT</option>
@@ -91,7 +91,7 @@
                         <label for="Address" id="textcc">Address:</label>
                         <input type="text" placeholder="Address:"id="inputc" name="address" required><br>
                         <label for="Contact Number" id="textcc" >Contact  Number:</label>
-                        <input type="text" placeholder="ex/ 0955-297-8471"id="inputc" name="contactnumber" required><br>
+                        <input type="text" placeholder="ex/ 0955-297-8471"id="inputc" maxlength="13" name="contactnumber" required><br>
                         <br>
                         <div class="login">
                         <a href="index.php" id="login"><p>Login</p></a>
