@@ -112,7 +112,7 @@
             <div class="content">
             <?php
         include("db.connection.php");
-            $sql = "SELECT * FROM svcclms";
+            $sql = "SELECT status FROM bookborrow Where `status`='Not approve'";
 
             $result = $conn->query($sql);
 

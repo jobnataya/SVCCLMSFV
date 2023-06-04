@@ -87,8 +87,38 @@ include("db.connection.php");
         </table>
     </div>
     <div class="ddownadrticle2"> 
-           <h1>Welcome back <?php echo $_SESSION['uname']; ?> We're thrilled to have you back in charge. Your presence ensures that the library operations are in capable hands.</h1>
+        <h1>Approval Book Issue</h1>
+           <form action="" method="POST">
+                <label for="Approval">Approval:  </label>
+                <input type="text" placeholder="Approval" id="search" name="approval">
+                <br>
+                <label for="Status">Status: </label>
+                <input type="text" placeholder="Status" id="search1" name="status">
+                <br>
+                <input type="submit" name="submit" id="submit" value="Submit">
+           </form>
     </div>
+    <?php
+    include("db.connection.php");
+
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+     {
+        $approval =$_POST['approval'];
+        $status =$_POST['status'];
+
+        $query = "UPDATE bookborrow SET `status` = '$status' WHERE approval = '$approval'";
+
+        
+        
+        if (mysqli_query($conn, $query)) {
+            echo "<script type='text/javascript'> alert('Update books Successfully!')</script>";
+        } else {
+            echo "<script type='text/javascript'> alert('Error Update books!')</script>";
+        }
+        
+    }  
+?>
     </div>
     
 </body>

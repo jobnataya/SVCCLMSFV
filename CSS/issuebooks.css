@@ -132,6 +132,8 @@ nav ul li i{
     height: 200px;
     width: 1100px;
     outline: auto;
+    text-align: center;
+    padding-top: 30px;
 }
 table{
     border-collapse: collapse;
@@ -155,4 +157,37 @@ table, td{
 }
 tr:hover {
     background-color: #19f119;
+}
+#search{
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: green;
+    color: white;
+}
+::-webkit-input-placeholder {
+    color: rgb(237, 232, 232);
+}
+#search1{
+    margin-left: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: green;
+    color: white;
+}
+#submit{
+    margin-top: 15px;
+    border-style: none;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 30px;
+    background: #16c74b;
+    color: white;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+#submit:hover{
+    background: #0a7a00;
 }
