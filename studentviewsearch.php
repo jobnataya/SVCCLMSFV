@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,22 +31,22 @@
             <ul>
                 <li><a href="Profile.php"><i class="fa-regular fa-id-card"></i>Profile</a></li>
                 <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
-                <li class="studentaccount"><a href="studentaccount.php"><i class="fa-solid fa-school"></i>Student Account</a></li>
-                <li><a href="issuebooks.php"> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
+                <li><a href="studentaccount.php"><i class="fa-solid fa-school"></i>Student Account</a></li>
+                <li><a href=""> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
                 <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
-        </nav>  
+        </nav>
     </div>
     <div class="centerarticle">
         <ul>
             <li><a href="addbooks.php">ADD BOOKS</a></li>
             <li><a href="updatebooks.php">UPDATE BOOKS</a></li>
-            <li><a href="viewbooks.php">VIEW BOOKS</a></li>
+            <li class="viewbooks"><a href="viewbooks.php">VIEW BOOKS</a></li>
             <li><a href="deletebooks.php">DELETE BOOKS</a></li>
         </ul>
     </div>
 <div class="searchs">
-        <form method="GET" action="studentviewsearch.php">
+        <form method="GET" action="testing.php">
         <input type="text" name="search" placeholder="Search..." id="search">
         <input type="submit" value="Search" id="searchbutton">
         </form>
@@ -55,34 +54,38 @@
     <div class="ddownadrticle">
         <table>
             <tr>
-                <th>First Name</th>
+            <th>First Name</th>
                 <th>Last name</th>
                 <th>Year</th>
                 <th>ID Number</th>
                 <th>User type</th>
             </tr>
             <?php
-                require 'db.connection.php';
+     include("db.connection.php");
 
-                $sql = "SELECT fname, lname, year, idnumber, usertype from svcclms";
-                $result = $conn-> query($sql);
-
-                if($result-> num_rows > 0 ){
-                    while ($row = $result-> fetch_assoc() ) {
-                        echo "<tr><td>". $row["fname"] .  "<td>". $row["lname"] .
-                         "<td>". $row["year"].
-                          "<td>". $row["idnumber"].
-                         "<td>". $row["usertype"].
-                         "<tr><td>";
-
-                    }
-                    echo "</table>";
-                }
-                else{
-                    echo "0 result";
-                }
-                $conn-> close();
-            ?>
+        $query = isset($_GET['search']) ? $_GET['search'] : '';
+    
+        // Perform the database query
+     if (!empty($query)) {
+        $sql = "SELECT * FROM svcclms WHERE lname  LIKE '%$query%'";
+        $result = $conn->query($sql);
+    
+        // Display the search results
+        if ($result->num_rows > 0) {
+            while ($row = $result-> fetch_assoc() ) {
+                echo "<tr><td>". $row["fname"] .  "<td>". $row["lname"] .
+                 "<td>". $row["year"].
+                  "<td>". $row["idnumber"].
+                 "<td>". $row["usertype"]. 
+                 "<tr><td>";
+            }
+        } else {
+            echo "No results found.";
+        }
+    } else {
+        echo "Please enter a search query.";
+    }
+    ?>
         </table>
     </div>
     </div>
