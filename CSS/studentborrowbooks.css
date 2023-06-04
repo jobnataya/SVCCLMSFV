@@ -88,12 +88,5 @@
     height: 562px;
     width: 1135px;
     margin:  0 auto;
-}
-.all .article .rightside h1{
-    text-align: center;
-    margin-top: 250px;
-    font-family: monospace;
-    font-weight: bolder;
-    background-color: rgb(34, 196, 20);
-    opacity: 0.9;
+    outline: auto;
 }

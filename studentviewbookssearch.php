@@ -70,27 +70,30 @@ $query = mysqli_query($conn, $sql);
                 <th>AUTHOR</th>
                 <th>BOOK QUANTITY</th>
             </tr>
-            <?php
-                require 'db.connection.php';
+                    <?php
+            include("db.connection.php");
 
-                $sql = "SELECT isbn, bookid, bookname, author, bookquantity from addbooks";
-                $result = $conn-> query($sql);
-
-                if($result-> num_rows > 0 ){
-                    while ($row = $result-> fetch_assoc() ) {
+                $query = isset($_GET['search']) ? $_GET['search'] : '';
+            
+                // Perform the database query
+            if (!empty($query)) {
+                $sql = "SELECT * FROM addbooks WHERE bookname LIKE '%$query%'";
+                $result = $conn->query($sql);
+            
+                // Display the search results
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
                         echo "<tr><td>". $row["isbn"] .  "<td>". $row["bookid"] .
-                         "<td>". $row["bookname"].
-                          "<td>". $row["author"].
-                         "<td>". $row["bookquantity"]. 
-                         "<tr><td>";
-
+                                "<td>". $row["bookname"].
+                                "<td>". $row["author"].
+                                "<td>". $row["bookquantity"]. "<tr><td>";
                     }
-                    echo "</table>";
+                } else {
+                    echo "No results found.";
                 }
-                else{
-                    echo "0 result";
-                }
-                $conn-> close();
+            } else {
+                echo "Please enter a search query.";
+            }
             ?>
         </table>
             </div>

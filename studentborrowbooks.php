@@ -11,7 +11,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Home</title>
-    <link rel="stylesheet" href="CSS/studenthome.css">
+    <link rel="stylesheet" href="CSS/studentborrowbooks.css">
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
 <body class="all" style="background:url(IMAGES/books.jpg)">
@@ -28,12 +28,20 @@ session_start();
                 <div class="navleft">
                     <ul>
                         <li ><a href="studentprofile.php"><i class="fa-regular fa-user fa-2xl"></i>Profile</a></li>
-                        <li><a href="studentviewbooks.php"><i class="fa-solid fa-book fa-2xl"></i>Viewbooks</a></li>
+                        <li><a href=""><i class="fa-solid fa-book fa-2xl"></i>Viewbooks</a></li>
+                        <li><a href=""> <i class="fa-solid fa-rotate-left fa-2xl"></i>Borrowed Books</a></li>
                     </ul>
                 </div>
             </div>
             <div class="rightside">
-            <h1>Hello,  <?php echo $_SESSION['uname']; ?> We're delighted to have you back in our virtual library. Let's dive into the world of books</h1>
+                <div class="form">
+                <form action="" method="">
+                    <label for="ISBN">ISBN</label>
+                    <input type="text" placeholder="ISBN">
+                    <br>
+                    
+                </form>
+                </div>
             </div>
         </div>
         <div class="footer"></div>

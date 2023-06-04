@@ -85,15 +85,90 @@
     background-color: black;
 }
 .all .article .rightside{
-    height: 562px;
+    height: 400px;
     width: 1135px;
     margin:  0 auto;
+    overflow: auto;
+    margin-top: 150px;  
 }
-.all .article .rightside h1{
-    text-align: center;
-    margin-top: 250px;
-    font-family: monospace;
-    font-weight: bolder;
-    background-color: rgb(34, 196, 20);
-    opacity: 0.9;
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th td{
+    border: 1px solid #221f1f;
+    padding: 8px;
+    text-align: left;
+}
+table, th{
+    background-color: #4CAF50;
+            color: white;
+}
+tr:nth-child(even) {
+    background-color: #16c74b;
+}
+table, td{
+    border-right: 1px solid black;
+   
+}
+tr:hover {
+    background-color: #19f119;
+}
+.searchs{
+    padding: 10px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    margin-left: 260px;
+    margin-top: 100px;
+    left: 0;
+}
+.searchs #search{
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: green;
+    color: white;
+}
+::-webkit-input-placeholder {
+
+    color: rgb(237, 232, 232);
+    
+
+}
+.searchs #searchbutton{
+    border-style: none;
+    background-color: rgb(13, 255, 0);
+    width: 70px;
+    height: 35px;
+    color: rgb(68, 68, 68);
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.borrowbooks{
+    position:absolute;
+    width: 800px;
+    left: 300px;
+    top: 10px;
+}
+#datetimelocal{
+    width: 100px;
+}
+#submit{
+margin-left: 25px;
+border-style: none;
+width: 50px;
+background-color:rgb(13, 255, 0);
+border-radius: 10px;
+cursor: pointer;
+height: 40px;
+width: 50wpx;
+margin-bottom: 25xp;
+color: white;
+transition: 0.3s;
+}
+#submit:hover{
+    background-color: green;
 }
