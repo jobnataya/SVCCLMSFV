@@ -53,14 +53,41 @@ $query = mysqli_query($conn, $sql);
         <input type="submit" value="Search" id="searchbutton">
         </form>
         <div class="borrowbooks">
-            <form action="" method="">
-                <input type="text" placeholder="ISBN: " id="search">
-                <input type="text" placeholder="Book Name:" id="search">
-                <input type="text" placeholder="Name user:" id="search">
-                <input type="datetime-local" id="datetimelocal">
-                <input type="submit" id="submit">
+            <form action="" method="POST">
+                <input type="text" placeholder="Approval"id="search" name="approval" required>
+                <input type="text" placeholder="ISBN: " id="search" name="isbn">
+                <input type="text" placeholder="Book Name:" id="search" name="bookname" required>
+                <input type="text" placeholder="Name user:" id="search" name="nameuser" required>
+                <input type="datetime-local" id="datetimelocal" name="datetimelocal" required>
+                <input type="hidden" value="Not Approve" name="status">
+                <input type="submit" id="submit" name="submit">
             </form>
         </div>
+        <?php
+        include("db.connection.php");
+    
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+           $approval = $_POST['approval'];
+           $isbn = $_POST['isbn'];
+           $bookname = $_POST['bookname'];
+           $nameuser = $_POST['nameuser'];
+           $datetimelocal = $_POST['datetimelocal'];
+           $status = $_POST['status'];
+    
+            if (!empty($bookname) && !empty($approval)) {
+                
+                $query = "INSERT INTO bookborrow (`approval`,`isbn`,`bookname`,`nameuser`,`datetimelocal`,`status`) values ('$approval','$isbn','$bookname','$nameuser','$datetimelocal','$status')";
+    
+                mysqli_query($conn, $query);
+    
+                echo "<script type = 'text/javascript'> alert ('Borrow Books Successfully')</script>";
+            }
+            else{
+                echo "<script type = 'text/javascript'> alert ('Please Fill up all Borrow Books')</script>";
+            }
+        }
+    ?> 
         </div>
             <table>
             <tr>
