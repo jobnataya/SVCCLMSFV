@@ -42,7 +42,7 @@ $query = mysqli_query($conn, $sql);
                 <div class="navleft">
                     <ul>
                         <li ><a href="studentprofile.php"><i class="fa-regular fa-user fa-2xl"></i>Profile</a></li>
-                        <li><a href=""><i class="fa-solid fa-book fa-2xl"></i>Viewbooks</a></li>
+                        <li><a href="studentviewbooks.php"><i class="fa-solid fa-book fa-2xl"></i>Viewbooks</a></li>
                         <li><a href=""> <i class="fa-solid fa-rotate-left fa-2xl"></i>Borrowed Books</a></li>
                     </ul>
                 </div>
