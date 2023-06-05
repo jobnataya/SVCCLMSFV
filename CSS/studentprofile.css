@@ -5,11 +5,8 @@
 }
 .all .header{
     display: flex;
-    background: rgb(0, 167, 0);
+    background: #33ab5f;
     justify-content: space-between;
-}
-.all .header .logo{
-
 }
 .all .header .logo img{
     width: 100px;
@@ -52,9 +49,9 @@
 }
 .article .leftside .navleft ul li a {
     text-decoration: none;    
-    color: white;
+    color: black;
     display: block;
-    background: green;
+    background: #bfa8bb;
     transition: 0.3s;
     text-align: center;
     font-family: monospace;
@@ -63,6 +60,7 @@
 }
 .article .leftside .navleft ul li a:hover{
     background: rgb(0, 167, 0);
+    color: white;
 }
 .all .header .textlogo .logout{
     margin-left: 10px;
@@ -75,7 +73,7 @@
     font-family: monospace;
     font-size: 15px;
     font-weight: normal;
-    background-color: red;
+    background-color: rgb(252, 102, 102);
     width: 65px;
     height: 30px;
     padding-top: 5px;
@@ -90,9 +88,11 @@
     margin:  0 auto;
 }
 table{
-    margin-top: 250px;
+    margin-top: 190px;
+    margin-left: 50px;
     border-collapse: collapse;
-    width: 100%;
+    width: 1000px;
+    height: 250px;
 }
 table, th td{
     border: 1px solid #221f1f;
@@ -100,15 +100,17 @@ table, th td{
     text-align: left;
 }
 table, th{
-    background-color: #4CAF50;
-            color: white;
-}
-tr:nth-child(even) {
-    background-color: #16c74b;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    background: #d5f591;
+    color: white;
+    color: black;
 }
 table, td{
+    background: #bfa8bb;
     border-right: 1px solid black;
-   
+    color: black;
+    border-bottom: 1px solid black;
 }
 tr:hover {
     background-color: #19f119;

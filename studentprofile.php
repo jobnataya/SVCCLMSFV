@@ -47,48 +47,49 @@ $query = mysqli_query($conn, $sql);
                 </div>
             </div>
             <div class="rightside">
-            <table>
-            <tr>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Last Name</th>
-                <th>Birth Day</th>
-                <th>Gender</th>
-                <th>Year</th>
-                <th>ID Number</th>
-                <th>Department</th>
-                <th>User Type</th>
-                <th>Contact Number</th>
-            </tr>
-            <?php
-        // Check if the user is logged in
-        if (!isset($_SESSION['uname'])) {
-            header('Location: Profile.php');
-            exit();
-        }
-        
-        // Retrieve user data using the username
-        $username = $_SESSION['uname'];
-        
-        // Display user data
-        $sql = "SELECT * FROM svcclms WHERE uname = '$username'";
-        $query = mysqli_query($conn, $sql);
-        
-        while ( $row = mysqli_fetch_assoc($query )) {
-            echo "<tr><td>". $row["fname"] .  "<td>". $row["mname"] .
-                 "<td>". $row["lname"].
-                 "<td>". $row["bday"]. 
-                 "<td>". $row["gender"].
-                 "<td>". $row["year"].
-                 "<td>". $row["idnumber"].
-                 "<td>". $row["department"].
-                 "<td>". $row["usertype"].
-                 "<td>". $row["contactnumber"].
-                 "<tr><td>";
-        }
-        // Display other user information
-        ?>
-        </table>
+           <?php 
+                include("db.connection.php");
+
+                if ($query-> num_rows > 0 ) {
+                    while ($row = $query-> fetch_assoc() ) {
+                    
+                ?>
+                <table>
+                    <tr>
+                        <th>First Name:</th>
+                        <td><?php echo$row['fname'];?></td>
+                        
+                        <th>Gender:</th>
+                        <td><?php echo$row['gender'];?></td>
+                    </tr>
+                    <tr>
+                        <th>Middle Name:</th>
+                        <td><?php echo$row['mname'];?></td>
+
+                        <th>School Year:</th>
+                        <td><?php echo$row['year'];?></td>
+                    </tr>
+                    <tr>
+                        <th>Last Name:</th>
+                        <td><?php echo$row['lname'];?></td>
+
+                        <th>Department:</th>
+                        <td><?php echo$row['department'];?></td>
+                    </tr>
+                    <tr>
+                        <th>Birthday:</th>
+                        <td><?php echo$row['bday'];?></td>
+
+                        <th>Address:</th>
+                        <td><?php echo$row['address'];?></td>
+                    </tr>   
+                    
+                <?php
+                    }
+
+                }
+                ?>
+                </table>
             </div>
         </div>
         <div class="footer"></div>

@@ -5,7 +5,7 @@
 }
 .all .header{
     display: flex;
-    background: rgb(0, 167, 0);
+    background: #33ab5f;
     justify-content: space-between;
 }
 .all .header .logo{
@@ -52,9 +52,9 @@
 }
 .article .leftside .navleft ul li a {
     text-decoration: none;    
-    color: white;
+    color: #333333;
     display: block;
-    background: green;
+    background: #8cdba9;
     transition: 0.3s;
     text-align: center;
     font-family: monospace;
@@ -63,6 +63,7 @@
 }
 .article .leftside .navleft ul li a:hover{
     background: rgb(0, 167, 0);
+    color: white;
 }
 .all .header .textlogo .logout{
     margin-left: 10px;
@@ -70,12 +71,12 @@
 .all .header .textlogo .logout a{
     text-decoration: none;
     text-align: center;
-    color: white;
+    color: #ebe8e8;
     display: block;
     font-family: monospace;
     font-size: 15px;
     font-weight: normal;
-    background-color: red;
+    background-color: rgb(245, 73, 73);
     width: 65px;
     height: 30px;
     padding-top: 5px;
@@ -86,7 +87,7 @@
 }
 .all .article .rightside{
     height: 562px;
-    width: 1135px;
+    width: 800px;
     margin:  0 auto;
 }
 .all .article .rightside h1{
@@ -94,6 +95,6 @@
     margin-top: 250px;
     font-family: monospace;
     font-weight: bolder;
-    background-color: rgb(34, 196, 20);
+    background-color: #bfa8bb;
     opacity: 0.9;
 }

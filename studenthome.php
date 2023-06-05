@@ -33,7 +33,7 @@ session_start();
                 </div>
             </div>
             <div class="rightside">
-            <h1>Hello,  <?php echo $_SESSION['uname']; ?> We're delighted to have you back in our virtual library. Let's dive into the world of books</h1>
+            <h1>Hello, <span style="color:blue" >  <?php echo $_SESSION['uname']; ?> </span> We're delighted to have you back in our virtual library. Let's dive into the world of books</h1>
             </div>
         </div>
         <div class="footer"></div>
