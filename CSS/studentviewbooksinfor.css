@@ -93,8 +93,10 @@
     margin-top: 150px;    
 }
 table{
+    margin-top: 60px;
+    margin-left: 200px;
     border-collapse: collapse;
-    width: 100%;
+    width: 700px;
 }
 table, th td{
     border: 1px solid #221f1f;
@@ -102,14 +104,12 @@ table, th td{
     text-align: left;
 }
 table, th{
-    background-color: #4CAF50;
-            color: white;
-}
-tr:nth-child(even) {
-    background-color: #16c74b;
+    background-color: #d5f591;
+            color: black;
 }
 table, td{
     border-right: 1px solid black;
+    background-color: #8cdba9;
    
 }
 tr:hover {

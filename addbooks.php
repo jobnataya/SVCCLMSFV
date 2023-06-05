@@ -10,10 +10,11 @@
         $bookname = $_POST["bookname"];
         $author = $_POST["author"];
         $bookquantity = $_POST["bookquantity"];
+        $description = $_POST["description"];
 
         
         if (!empty($isbn) && !empty($bookid)) {
-            $query = "INSERT INTO addbooks (`date`,`isbn`,`bookid`,`bookname`,`author`,`bookquantity`) values ('$date','$isbn','$bookid','$bookname','$author','$bookquantity')";
+            $query = "INSERT INTO addbooks (`date`,`isbn`,`bookid`,`bookname`,`author`,`bookquantity`,`description`) values ('$date','$isbn','$bookid','$bookname','$author','$bookquantity', '$description')";
             mysqli_query($conn, $query);
 
             echo "<script type = 'text/javascript'> alert ('Add books Successfully!')</script>";
@@ -87,6 +88,9 @@
             <br>
             <label for="Author">Author</label>
             <input type="text" name="author" maxlength="20" id="Author" >
+            <br>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="bookid" >
             <br>
             <label for="bookquantity">Book Quantity</label>
             <input type="number" name="bookquantity" min="1" maxlength="100" id="Quantity">

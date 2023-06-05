@@ -3,8 +3,10 @@
     
     if (isset($_POST['submit'])) {
         $isbn = $_POST['isbn'];
+        $description = $_POST['description'];
         
         echo $isbn;
+        echo $description;
     }
 
 ?>
@@ -73,7 +75,7 @@
             <?php
                 require 'db.connection.php';
 
-                $sql = "SELECT isbn, bookid, bookname, author, bookquantity from addbooks";
+                $sql = "SELECT * from addbooks";
                 $result = $conn-> query($sql);
 
                 if($result-> num_rows > 0 ){
@@ -87,7 +89,8 @@
                         <td><?php  echo$row['author'];?></td>
                         <td><?php  echo$row['bookquantity'];?></td>
                         <td>
-                            <form action="" method="post" >
+                            <form action="" method="post">
+                                <input type="hidden" name="description" value="<?php echo $row['description'] ?>">
                                 <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
                                 <input type="submit" name="submit" >
                             </form>

@@ -47,54 +47,6 @@ $query = mysqli_query($conn, $sql);
                 </div>
             </div>
             <div class="rightside">
-                <div class="searchs">
-        <form method="GET" action="studentviewbookssearch.php">
-        <input type="text" name="search" placeholder="Search..." id="search">
-        <input type="submit" value="Search" id="searchbutton">
-        </form>
-        <div class="borrowbooks">
-            <form action="" method="POST">
-                <input type="text" placeholder="Approval"id="search" name="approval" required>
-                <input type="text" placeholder="ISBN: " id="search" name="isbn">
-                <input type="text" placeholder="Book Name:" id="search" name="bookname" required>
-                <input type="text" placeholder="Name user:" id="search" name="nameuser" required>
-                <input type="datetime-local" id="datetimelocal" name="datetimelocal" required>
-                <input type="hidden" value="Not Approve" name="status">
-                <input type="submit" id="submit" name="submit">
-            </form>
-        </div>
-        <?php
-        include("db.connection.php");
-    
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            
-           $approval = $_POST['approval'];
-           $isbn = $_POST['isbn'];
-           $bookname = $_POST['bookname'];
-           $nameuser = $_POST['nameuser'];
-           $datetimelocal = $_POST['datetimelocal'];
-           $status = $_POST['status'];
-    
-            if (!empty($bookname) && !empty($approval)) {
-                
-                $query = "INSERT INTO bookborrow (`approval`,`isbn`,`bookname`,`nameuser`,`datetimelocal`,`status`) values ('$approval','$isbn','$bookname','$nameuser','$datetimelocal','$status')";
-    
-                mysqli_query($conn, $query);
-    
-                echo "<script type = 'text/javascript'> alert ('Borrow Books Successfully')</script>";
-                
-                if (!empty($bookname) && !empty($approval)) {
-                    $query = "INSERT INTO returnbooks (`approval`,`isbn`,`bookname`,`nameuser`,`datetimelocal` ) values ('$approval','$isbn','$bookname','$nameuser','$datetimelocal')";
-    
-                    mysqli_query($conn, $query);
-                }
-            }
-            else{
-                echo "<script type = 'text/javascript'> alert ('Please Fill up all Borrow Books')</script>";
-            }
-        }
-    ?> 
-        </div>
             <table>
             <tr>
                 <th>ISBN</th>
@@ -106,26 +58,39 @@ $query = mysqli_query($conn, $sql);
             <?php
                 require 'db.connection.php';
 
-                $sql = "SELECT isbn, bookid, bookname, author, bookquantity from addbooks";
+                $sql = "SELECT * from addbooks";
                 $result = $conn-> query($sql);
 
                 if($result-> num_rows > 0 ){
                     while ($row = $result-> fetch_assoc() ) {
-                        echo "<tr><td>". $row["isbn"] .  "<td>". $row["bookid"] .
-                         "<td>". $row["bookname"].
-                          "<td>". $row["author"].
-                         "<td>". $row["bookquantity"]. 
-                         "<tr><td>";
+                     
+                     ?>
+                     <tr>
+                        <td><?php  echo$row['isbn'];?></td>
+                        <td><?php  echo$row['bookid'];?></td>
+                        <td><?php  echo$row['bookname'];?></td>
+                        <td><?php  echo$row['author'];?></td>
+                        <td><?php  echo$row['bookquantity'];?></td>
+                        <td>
+                            <form action="studentviewbooksinfo.php" method="post" >
+                            <input type="hidden" name="bookname" value="<?php echo $row['bookname'] ?>">
+                                <input type="hidden" name="description" value="<?php echo $row['description'] ?>">
+                                <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
+                                <input type="submit" name="submit" >
+                            </form>
+                        </td>
+                     </tr>
 
+                     
+                        
+                    
+                        <?php 
                     }
-                    echo "</table>";
                 }
-                else{
-                    echo "0 result";
-                }
-                $conn-> close();
             ?>
         </table>
+
+       
             </div>
         </div>
         <div class="footer"></div>
