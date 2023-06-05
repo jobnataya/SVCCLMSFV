@@ -1,17 +1,7 @@
-<?php 
-    include("db.connection.php");
-    
-    if (isset($_POST['submit'])) {
-        $isbn = $_POST['isbn'];
-        
-        echo $isbn;
-    }
-
+<?php
+session_start();
+include("db.connection.php"); 
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CSS/viewbooks.css">
+    <link rel="stylesheet" href="CSS/issuebooks.css">
     <title>Home admin</title>
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
@@ -39,7 +29,7 @@
         </div>
         <div class="texticon"><h2>Online Library Management System</h2></div>
      </div>
-     <div class="logout"><a href="logout.php"><p>Log out</p></a></div>
+        <div class="logout"><a href="logout.php"><p>Log out</p></a></div>
     </div>
     <div class="leftarticle">
         <nav>
@@ -56,58 +46,81 @@
         <ul>
             <li><a href="addbooks.php">ADD BOOKS</a></li>
             <li><a href="updatebooks.php">UPDATE BOOKS</a></li>
-            <li class="viewbooks"><a href="viewbooks.php">VIEW BOOKS</a></li>
+            <li><a href="viewbooks.php">VIEW BOOKS</a></li>
             <li><a href="deletebooks.php">DELETE BOOKS</a></li>
         </ul>
     </div>
-<div class="searchs">
-        <form method="GET" action="testing.php">
-        <input type="text" name="search" placeholder="Search..." id="search">
-        <input type="submit" value="Search" id="searchbutton">
-        </form>
-        </div>
-    <div class="ddownadrticle">
-        <table>
+    
+    <div class="ddownadrticle"> 
+    <table>
             <tr>
+                <th>Approval</th>
                 <th>ISBN</th>
-                <th>SERIES</th>
                 <th>BOOK NAME</th>
-                <th>AUTHOR</th>
-                <th>BOOK QUANTITY</th>
+                <th>NAME USER</th>
+                <th>DATE & TIME</th>
+                <th>Status</th>
+                <th>Returned</th>
             </tr>
             <?php
                 require 'db.connection.php';
 
-                $sql = "SELECT isbn, bookid, bookname, author, bookquantity from addbooks";
+                $sql = "SELECT * from returnbooks";
                 $result = $conn-> query($sql);
 
                 if($result-> num_rows > 0 ){
                     while ($row = $result-> fetch_assoc() ) {
-                     
-                     ?>
-                     <tr>
-                        <td><?php  echo$row['isbn'];?></td>
-                        <td><?php  echo$row['bookid'];?></td>
-                        <td><?php  echo$row['bookname'];?></td>
-                        <td><?php  echo$row['author'];?></td>
-                        <td><?php  echo$row['bookquantity'];?></td>
-                        <td>
-                            <form action="" method="post" >
-                                <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
-                                <input type="submit" name="submit" >
-                            </form>
-                        </td>
-                     </tr>
+                        echo "<tr><td>". $row["approval"] .  "<td>". $row["isbn"] .
+                         "<td>". $row["bookname"].
+                          "<td>". $row["nameuser"].
+                         "<td>". $row["datetimelocal"]. 
+                         "<td>". $row["status"]. 
+                         "<td>". $row["returned"].
+                         "<tr><td>";
 
-                     
-                        
-                    
-                        <?php 
                     }
+                    echo "</table>";
                 }
+                else{
+                    echo "0 result";
+                }
+                $conn-> close();
             ?>
         </table>
     </div>
+    <div class="ddownadrticle2"> 
+        <h1>Issued Return books</h1>
+           <form action="" method="POST">
+                <label for="Approval">Approval:  </label>
+                <input type="text" placeholder="Approval" id="search" name="approval">
+                <br>
+                <label for="Status">Status: </label>
+                <input type="text" placeholder="Status" id="search1" name="returned">
+                <br>
+                <input type="submit" name="submit" id="submit" value="Submit">
+           </form>
+    </div>
+    <?php
+    include("db.connection.php");
+
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+     {
+        $approval =$_POST['approval'];
+        $status =$_POST['returned'];
+
+        $query = "UPDATE returnbooks SET `returned` = '$status' WHERE approval = '$approval'";
+
+        
+        
+        if (mysqli_query($conn, $query)) {
+            echo "<script type='text/javascript'> alert('Returend books Successfully!')</script>";
+        } else {
+            echo "<script type='text/javascript'> alert('Error Returend books!')</script>";
+        }
+        
+    }  
+?>
     </div>
     
 </body>

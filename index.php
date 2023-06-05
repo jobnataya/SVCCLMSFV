@@ -23,7 +23,6 @@
                 <br>
                 <input type="password" placeholder="Password:" id="input" name="pword">
                 <br>
-                <a href="" id="forget">Forget Password?</a>
                 <br>
                 <input type="submit" value="Login" id="submit" name="login">
                 <br>

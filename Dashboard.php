@@ -96,7 +96,7 @@
             // Display the number of students registered
             echo  "<h1> $numStudents </h1>";
         } else {
-            echo "No students found.";
+            echo "No available books";
         }
 
         // Close the database connection
@@ -124,7 +124,7 @@
             // Display the number of students registered
             echo  "<h1> $numStudents </h1>";
         } else {
-            echo "No students found.";
+            echo "No issue books found.";
         }
 
         // Close the database connection
@@ -140,7 +140,7 @@
             <div class="content">
             <?php
         include("db.connection.php");
-            $sql = "SELECT * FROM svcclms";
+        $sql = "SELECT returned FROM returnbooks Where `returned`='Returned'";
 
             $result = $conn->query($sql);
 
@@ -152,7 +152,7 @@
             // Display the number of students registered
             echo  "<h1> $numStudents </h1>";
         } else {
-            echo "No students found.";
+            echo "No Returned  books.";
         }
 
         // Close the database connection

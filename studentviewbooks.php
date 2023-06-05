@@ -84,7 +84,7 @@ $query = mysqli_query($conn, $sql);
                 echo "<script type = 'text/javascript'> alert ('Borrow Books Successfully')</script>";
                 
                 if (!empty($bookname) && !empty($approval)) {
-                    $query = "INSERT INTO bookborrowhistory (`approval`,`isbn`,`bookname`,`nameuser`,`datetimelocal`,`status`) values ('$approval','$isbn','$bookname','$nameuser','$datetimelocal','$status')";
+                    $query = "INSERT INTO returnbooks (`approval`,`isbn`,`bookname`,`nameuser`,`datetimelocal` ) values ('$approval','$isbn','$bookname','$nameuser','$datetimelocal')";
     
                     mysqli_query($conn, $query);
                 }
