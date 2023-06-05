@@ -76,7 +76,12 @@ $query = mysqli_query($conn, $sql);
                             <input type="hidden" name="bookname" value="<?php echo $row['bookname'] ?>">
                                 <input type="hidden" name="description" value="<?php echo $row['description'] ?>">
                                 <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
-                                <input type="submit" name="submit" >
+                                <input type="submit" name="submit" class="submit">
+                            </form>
+                        </td>
+                        <td>
+                            <form action="">
+                                <input type="submit" name="borrow" class="submit" value="Borrow">
                             </form>
                         </td>
                      </tr>

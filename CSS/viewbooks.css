@@ -145,9 +145,7 @@ table, th{
             top: 0;
             z-index: 99;
 }
-tr:nth-child(even) {
-    background-color: #16c74b;
-}
+
 table, td{
     border-right: 1px solid black;
    
