@@ -86,11 +86,11 @@
     background-color: black;
 }
 .all .article .rightside{
-    height: 400px;
+    height: 300px;
     width: 1135px;
     margin:  0 auto;
     overflow: auto;
-    margin-top: 150px;    
+    margin-top: 150px;   
 }
 table{
     border-collapse: collapse;
@@ -98,15 +98,20 @@ table{
    margin-left: 100px;
 }
 table, th td{
+    
     border: 1px solid #221f1f;
     padding: 8px;
     text-align: left;
 }
 table, th{
+    top: 0;
+    position: sticky;
+    z-index: 999;
     background-color: #d5f591;
             color: black;
 }
 table, td{
+    padding-left: 10px;
     border-right: 1px solid black;
     background-color: #8cdba9;
    

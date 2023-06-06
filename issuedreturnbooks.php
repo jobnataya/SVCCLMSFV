@@ -60,6 +60,7 @@ include("db.connection.php");
                 <th>NAME BORROWER</th>
                 <th>STATUS</th>
                 <th>RETURNED</th>
+                <th>DATE TIME RETURNED</th>
             </tr>
             <?php
                 require 'db.connection.php';
@@ -78,6 +79,7 @@ include("db.connection.php");
                         <td><?php  echo$row['nameborrower'];?></td>
                         <td><?php  echo$row['status'];?></td>
                         <td><?php  echo$row['returned'];?></td>
+                        <td><?php  echo$row['datetime'];?></td>
                      </tr>
 
                      
@@ -92,13 +94,15 @@ include("db.connection.php");
     <div class="ddownadrticle2"> 
         <h1>Issued Return books</h1>
            <form action="" method="POST">
-                <label for="Approval">Approval:  </label>
+                <label for="Approval">ID NUMBER:  </label>
                 <input type="text" placeholder="Approval" id="search" name="approval">
                 <br>
-                <input type="hidden" placeholder="Status" id="search1" name="returned" value="Returend" >
                 <input type="datetime-local" name="datetime" class="datetime">
                 <br>
+                <input type="hidden" name="status" value="Returned" >
                 <input type="submit" name="submit" id="submit" value="Submit">
+                <input type="hidden" name="idnumber" value="<?php echo $row['idnumber'] ?>">
+                <input type="hidden" name="datetime" value="<?php echo $row['datetime'] ?>">
            </form>
     </div>
     <?php
@@ -107,10 +111,11 @@ include("db.connection.php");
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
      {
-        $approval =$_POST['approval'];
-        $status =$_POST['returned'];
+        $idnumber =$_POST['idnumber'];
+        $status =$_POST['status'];
+        $datetime = $_POST['datetime'];
 
-        $query = "UPDATE returnbooks SET `returned` = '$status' WHERE approval = '$approval'";
+        $query = "UPDATE returnbooks SET `status` = '$status' SET `datetime` = '$datetime' WHERE idnumber = '$idnumber'";
 
         
         

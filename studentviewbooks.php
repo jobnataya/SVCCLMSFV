@@ -93,6 +93,7 @@ while ( $user = mysqli_fetch_assoc($query )) {
                                 <input type="hidden" name="lname"  value="<?php echo $user['lname'] ?>">
                                 <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
                                 <input type="hidden" name="timestamp" id="timestamp">
+                                <input type="hidden" name="bookquantity" value="<?php echo $row['bookquantity'] ?>" >
                                 <input type="submit" name="borrow" class="submit" value="Borrow">
                             </form>
                         </td>
@@ -114,23 +115,31 @@ while ( $user = mysqli_fetch_assoc($query )) {
                         $borrower =  $_POST['fname'];
                         $lname = $_POST['lname'];
                         $datetime = $_POST['timestamp'];
+                        $bookquantity = $_POST['bookquantity'];
 
                         
         if (!empty($isbn) && !empty($borrower)) {
             
             $query = "INSERT INTO bookborrow (`isbn`,`bookname`,`idnumber`,`fname`,`lname`,`datetime`) values ('$isbn','$bookname','$idnumber','$borrower','$lname','$datetime')";
 
+
+
+          
+
+
             mysqli_query($conn, $query);
 
             echo "<script type = 'text/javascript'> alert ('Borrow Books Successfully')</script>";
         }
+            
         else{
             echo "<script type = 'text/javascript'> alert ('Error')</script>";
         }
 
-                    }
-
-                   
+                    
+    }        
+            
+            
 
      ?>
        
@@ -139,10 +148,4 @@ while ( $user = mysqli_fetch_assoc($query )) {
         <div class="footer"></div>
     </div>
 </body>
-<script>
-   function addTimestamp() {
-    var timestampField = document.getElementById("timestamp");
-    timestampField.value = new Date().toISOString()
-   }
-</script>
 </html>

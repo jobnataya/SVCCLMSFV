@@ -122,18 +122,10 @@ nav ul li i{
     position: relative;
     margin-top: 20px;
     margin-left: 262px;
-    height: 200px;
+    height: 250px;
     width: 1100px;
     outline: auto;
-}
-.ddownadrticle2{
-    position: relative; 
-    margin-left: 262px;
-    height: 200px;
-    width: 1100px;
-    outline: auto;
-    text-align: center;
-    padding-top: 30px;
+    overflow: auto;
 }
 table{
     border-collapse: collapse;

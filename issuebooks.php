@@ -89,11 +89,7 @@ include("db.connection.php");
                                 <input type="hidden" name="status" value="Issued" >
                             </form>
                         </td>
-                     </tr>
-
-                     
-                        
-                    
+                    </tr>
                         <?php 
                     }
                 }
@@ -118,11 +114,15 @@ include("db.connection.php");
             $query = "INSERT INTO returnbooks (`isbn`,`bookname`,`idnumber`,`nameborrower`,`lname`,`status`) values ('$isbn','$bookname','$idnumber','$borrower','$lname','$status')";
 
             mysqli_query($conn, $query);
-         
+
+                if (!empty($isbn) && !empty($borrower)) {
+            
 
             echo "<script type = 'text/javascript'> alert ('Borrow Books Successfully')</script>";
         }
     }
+
+     }
      ?>
     </div>
     
