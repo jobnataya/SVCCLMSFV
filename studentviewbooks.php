@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is logged in
 if (!isset($_SESSION['uname'])) {
-    header('Location: studentprofile.php');
+    header('Location: studentviewbook.php');
     exit();
 }
 //Retrieve user data using the username
@@ -15,6 +15,10 @@ $username = $_SESSION['uname'];
 $sql = "SELECT * FROM svcclms WHERE uname = '$username'";
 
 $query = mysqli_query($conn, $sql);
+
+
+while ( $user = mysqli_fetch_assoc($query )) {
+
 ?>
 
 
@@ -28,7 +32,7 @@ $query = mysqli_query($conn, $sql);
    <link rel="stylesheet" href="CSS/studentviewbooks.css">
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
-<body class="all" style="background:url(IMAGES/books.jpg)">
+<body class="all" style="background:url(IMAGES/books.jpg)"  onload="addTimestamp()">
     <div>
         <div class="header">
             <div class="logo"><img src="IMAGES/Logo.png" alt=""></div>
@@ -54,6 +58,8 @@ $query = mysqli_query($conn, $sql);
                 <th>BOOK NAME</th>
                 <th>AUTHOR</th>
                 <th>BOOK QUANTITY</th>
+                <th>View</th>
+                <th>Borrow</th>
             </tr>
             <?php
                 require 'db.connection.php';
@@ -73,32 +79,70 @@ $query = mysqli_query($conn, $sql);
                         <td><?php  echo$row['bookquantity'];?></td>
                         <td>
                             <form action="studentviewbooksinfo.php" method="post" >
-                            <input type="hidden" name="bookname" value="<?php echo $row['bookname'] ?>">
+                                <input type="hidden" name="bookname" value="<?php echo $row['bookname'] ?>">
                                 <input type="hidden" name="description" value="<?php echo $row['description'] ?>">
                                 <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
-                                <input type="submit" name="submit" class="submit">
+                                <input type="submit" name="submit" class="submit" value="View">
                             </form>
                         </td>
                         <td>
-                            <form action="">
+                            <form action="" method="post" >
+                                <input type="hidden" name="bookname" value="<?php echo $row['bookname']?>">
+                                <input type="hidden" name="fname"  value="<?php echo $user['fname'] ?>">
+                                <input type="hidden" name="idnumber"  value="<?php echo $user['idnumber'] ?>">
+                                <input type="hidden" name="lname"  value="<?php echo $user['lname'] ?>">
+                                <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
+                                <input type="hidden" name="timestamp" id="timestamp">
                                 <input type="submit" name="borrow" class="submit" value="Borrow">
                             </form>
                         </td>
                      </tr>
-
-                     
-                        
-                    
                         <?php 
                     }
                 }
+            }
             ?>
         </table>
+    <?php     
+                    include("db.connection.php");
+                    
+                    if (isset($_POST['borrow'])) {
+                        
+                        $isbn = $_POST['isbn']; 
+                        $bookname= $_POST['bookname'];
+                        $idnumber = $_POST['idnumber'];
+                        $borrower =  $_POST['fname'];
+                        $lname = $_POST['lname'];
+                        $datetime = $_POST['timestamp'];
 
+                        
+        if (!empty($isbn) && !empty($borrower)) {
+            
+            $query = "INSERT INTO bookborrow (`isbn`,`bookname`,`idnumber`,`fname`,`lname`,`datetime`) values ('$isbn','$bookname','$idnumber','$borrower','$lname','$datetime')";
+
+            mysqli_query($conn, $query);
+
+            echo "<script type = 'text/javascript'> alert ('Borrow Books Successfully')</script>";
+        }
+        else{
+            echo "<script type = 'text/javascript'> alert ('Error')</script>";
+        }
+
+                    }
+
+                   
+
+     ?>
        
             </div>
         </div>
         <div class="footer"></div>
     </div>
 </body>
+<script>
+   function addTimestamp() {
+    var timestampField = document.getElementById("timestamp");
+    timestampField.value = new Date().toISOString()
+   }
+</script>
 </html>

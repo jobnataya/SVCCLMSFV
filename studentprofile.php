@@ -79,10 +79,18 @@ $query = mysqli_query($conn, $sql);
                     <tr>
                         <th>Birthday:</th>
                         <td><?php echo$row['bday'];?></td>
+                        
 
                         <th>Address:</th>
                         <td><?php echo$row['address'];?></td>
                     </tr>   
+                    <tr>
+                        <th>School ID:</th>
+                        <td><?php echo$row['idnumber'];?></td>
+
+                        <th>Contact Number:</th>
+                        <td><?php echo$row['contactnumber'];?></td>
+                    </tr>
                     
                 <?php
                     }

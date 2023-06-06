@@ -107,12 +107,12 @@
         
         <div class="numissue">
             <div class="text">
-            <h1>Number of issue books</h1>
+            <h1>Number of issued books</h1>
             </div>
             <div class="content">
             <?php
         include("db.connection.php");
-            $sql = "SELECT status FROM bookborrow Where `status`='Not approve'";
+            $sql = "SELECT status FROM returnbooks Where `status`='Issued'";
 
             $result = $conn->query($sql);
 

@@ -54,13 +54,12 @@ include("db.connection.php");
     <div class="ddownadrticle"> 
     <table>
             <tr>
-                <th>Approval</th>
                 <th>ISBN</th>
                 <th>BOOK NAME</th>
-                <th>NAME USER</th>
-                <th>DATE & TIME</th>
-                <th>Status</th>
-                <th>Returned</th>
+                <th>ID NUMBER</th>
+                <th>NAME BORROWER</th>
+                <th>STATUS</th>
+                <th>RETURNED</th>
             </tr>
             <?php
                 require 'db.connection.php';
@@ -70,21 +69,23 @@ include("db.connection.php");
 
                 if($result-> num_rows > 0 ){
                     while ($row = $result-> fetch_assoc() ) {
-                        echo "<tr><td>". $row["approval"] .  "<td>". $row["isbn"] .
-                         "<td>". $row["bookname"].
-                          "<td>". $row["nameuser"].
-                         "<td>". $row["datetimelocal"]. 
-                         "<td>". $row["status"]. 
-                         "<td>". $row["returned"].
-                         "<tr><td>";
+                     
+                     ?>
+                     <tr>
+                        <td><?php  echo$row['isbn'];?></td>
+                        <td><?php  echo$row['bookname'];?></td>
+                        <td><?php  echo$row['idnumber'];?></td>
+                        <td><?php  echo$row['nameborrower'];?></td>
+                        <td><?php  echo$row['status'];?></td>
+                        <td><?php  echo$row['returned'];?></td>
+                     </tr>
 
+                     
+                        
+                    
+                        <?php 
                     }
-                    echo "</table>";
                 }
-                else{
-                    echo "0 result";
-                }
-                $conn-> close();
             ?>
         </table>
     </div>
@@ -94,8 +95,8 @@ include("db.connection.php");
                 <label for="Approval">Approval:  </label>
                 <input type="text" placeholder="Approval" id="search" name="approval">
                 <br>
-                <label for="Status">Status: </label>
-                <input type="text" placeholder="Status" id="search1" name="returned">
+                <input type="hidden" placeholder="Status" id="search1" name="returned" value="Returend" >
+                <input type="datetime-local" name="datetime" class="datetime">
                 <br>
                 <input type="submit" name="submit" id="submit" value="Submit">
            </form>

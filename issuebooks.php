@@ -54,12 +54,12 @@ include("db.connection.php");
     <div class="ddownadrticle"> 
     <table>
             <tr>
-                <th>Approval</th>
                 <th>ISBN</th>
                 <th>BOOK NAME</th>
-                <th>NAME USER</th>
-                <th>DATE & TIME</th>
-                <th>STATUS</th>
+                <th>ID NUMBER</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>DATE TIME</th>
             </tr>
             <?php
                 require 'db.connection.php';
@@ -69,56 +69,61 @@ include("db.connection.php");
 
                 if($result-> num_rows > 0 ){
                     while ($row = $result-> fetch_assoc() ) {
-                        echo "<tr><td>". $row["approval"] .  "<td>". $row["isbn"] .
-                         "<td>". $row["bookname"].
-                          "<td>". $row["nameuser"].
-                         "<td>". $row["datetimelocal"]. 
-                         "<td>". $row["status"]. 
-                         "<tr><td>";
+                     
+                     ?>
+                     <tr>
+                        <td><?php  echo$row['isbn'];?></td>
+                        <td><?php  echo$row['bookname'];?></td>
+                        <td><?php  echo$row['idnumber'];?></td>
+                        <td><?php  echo$row['fname'];?></td>
+                        <td><?php  echo$row['lname'];?></td>
+                        <td><?php  echo$row['datetime'];?></td>
+                        <td>
+                            <form action="" method="post">
+                            <input type="hidden" name="bookname" value="<?php echo $row['bookname']?>">
+                                <input type="hidden" name="fname"  value="<?php echo $row['fname'] ?>">
+                                <input type="hidden" name="idnumber"  value="<?php echo $row['idnumber'] ?>">
+                                <input type="hidden" name="lname"  value="<?php echo $row['lname'] ?>">
+                                <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
+                                <input type="submit" name="issue" value="ISSUE" >
+                                <input type="hidden" name="status" value="Issued" >
+                            </form>
+                        </td>
+                     </tr>
 
+                     
+                        
+                    
+                        <?php 
                     }
-                    echo "</table>";
                 }
-                else{
-                    echo "0 result";
-                }
-                $conn-> close();
             ?>
         </table>
-    </div>
-    <div class="ddownadrticle2"> 
-        <h1>Approval Book Issue</h1>
-           <form action="" method="POST">
-                <label for="Approval">Approval:  </label>
-                <input type="text" placeholder="Approval" id="search" name="approval">
-                <br>
-                <label for="Status">Status: </label>
-                <input type="text" placeholder="Status" id="search1" name="status">
-                <br>
-                <input type="submit" name="submit" id="submit" value="Submit">
-           </form>
-    </div>
-    <?php
-    include("db.connection.php");
+        <?php     
+                    include("db.connection.php");
+                    
+                    if (isset($_POST['issue'])) {
+                        
+                        $isbn = $_POST['isbn']; 
+                        $bookname= $_POST['bookname'];
+                        $idnumber = $_POST['idnumber'];
+                        $borrower =  $_POST['fname'];
+                        $lname = $_POST['lname'];
+                        $status = $_POST['status'];
 
-    
-    if ($_SERVER['REQUEST_METHOD'] == 'POST')
-     {
-        $approval =$_POST['approval'];
-        $status =$_POST['status'];
+                        
+        if (!empty($isbn) && !empty($borrower)) {
 
-        $query = "UPDATE bookborrow SET `status` = '$status' WHERE approval = '$approval'";
+  
+            $query = "INSERT INTO returnbooks (`isbn`,`bookname`,`idnumber`,`nameborrower`,`lname`,`status`) values ('$isbn','$bookname','$idnumber','$borrower','$lname','$status')";
 
-        
-        if (mysqli_query($conn, $query)) {
-            echo "<script type='text/javascript'> alert('Returend books Successfully!')</script>";
-        } else {
-            echo "<script type='text/javascript'> alert('Error Returend books!')</script>";
+            mysqli_query($conn, $query);
+         
+
+            echo "<script type = 'text/javascript'> alert ('Borrow Books Successfully')</script>";
         }
-       
-        
-    }  
-?>
+    }
+     ?>
     </div>
     
 </body>
