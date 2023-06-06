@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is logged in
 if (!isset($_SESSION['uname'])) {
-    header('Location: studentviewbook.php');
+    header('Location: index.php');
     exit();
 }
 //Retrieve user data using the username
@@ -29,7 +29,7 @@ while ( $user = mysqli_fetch_assoc($query )) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Home</title>
-   <link rel="stylesheet" href="CSS/studentviewbooks.css">
+  <link rel="stylesheet" href="CSS/studentviewbooks.css">
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
 <body class="all" style="background:url(IMAGES/books.jpg)"  onload="addTimestamp()">

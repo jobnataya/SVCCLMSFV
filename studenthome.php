@@ -1,6 +1,16 @@
 <?php
 include("db.connection.php");
 session_start(); 
+
+// Check if the user is logged in
+if (!isset($_SESSION['uname'])) {
+    header('Location: index.php');
+    exit();
+}
+
+// Retrieve user data using the username
+$username = $_SESSION['uname'];
+
 ?>
 
 

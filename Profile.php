@@ -60,7 +60,7 @@
         include("db.connection.php");
         // Check if the user is logged in
         if (!isset($_SESSION['uname'])) {
-            header('Location: Profile.php');
+            header('Location: adminlogin.php');
             exit();
         }
         

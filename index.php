@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="CSS/login.css">
-</head>
+    <link rel="stylesheet" href="CSS/index.css">
+</head> 
 
-<body style="background:url(IMAGES/books.jpg)">
-<div class="boddys"style="background:url(IMAGES/books.jpg)">
+<body style="background: url(IMAGES/IMG_2764.JPG) no-repeat; background-size: cover;"">
+<div class="boddys"style="background: url(IMAGES/IMG_2764.JPG) no-repeat; background-size: cover;"">
     <div class="header">
         <div class="logo"><img src="IMAGES/Logo.png" alt="Logo svcc"></div>
         <div class="text"><h1>SAINT VINCENT  COLLEGE OF CABUYAO</h1></div>

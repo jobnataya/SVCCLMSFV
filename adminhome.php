@@ -1,7 +1,19 @@
 <?php
 session_start();
 include("db.connection.php"); 
+
+
+        // Check if the user is logged in
+        if (!isset($_SESSION['uname'])) {
+            header('Location: adminlogin.php');
+            exit();
+        }
+        
+        // Retrieve user data using the username
+        $username = $_SESSION['uname'];
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

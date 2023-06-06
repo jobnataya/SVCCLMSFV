@@ -5,7 +5,7 @@
 }
 .all .header{
     display: flex;
-    background: #33ab5f;
+    background-color: white;
     justify-content: space-between;
 }
 .all .header .logo img{
@@ -20,7 +20,7 @@
 }
 .all .header .textlogo h1{
     font-family: monospace;
-    color: white;
+  color: black;
 }
 .article .leftside i{
    position: absolute;
@@ -49,9 +49,9 @@
 }
 .article .leftside .navleft ul li a {
     text-decoration: none;    
-    color: black;
+  color: white;
     display: block;
-    background: #bfa8bb;
+   background: red;
     transition: 0.3s;
     text-align: center;
     font-family: monospace;
@@ -59,8 +59,8 @@
     padding-left: 25px;
 }
 .article .leftside .navleft ul li a:hover{
-    background: rgb(0, 167, 0);
-    color: white;
+   background: yellow;
+    color: black;
 }
 .all .header .textlogo .logout{
     margin-left: 10px;
@@ -97,20 +97,21 @@ table{
 table, th td{
     border: 1px solid #221f1f;
     padding: 8px;
-    text-align: left;
 }
 table, th{
     border-right: 1px solid black;
     border-bottom: 1px solid black;
-    background: #d5f591;
-    color: white;
+    background: rgb(252, 252, 89);
     color: black;
+    padding-left: 10px;
+    text-align: left    ;
 }
 table, td{
-    background: #bfa8bb;
+   background: white;
     border-right: 1px solid black;
     color: black;
     border-bottom: 1px solid black;
+    text-align: center;
 }
 tr:hover {
     background-color: #19f119;

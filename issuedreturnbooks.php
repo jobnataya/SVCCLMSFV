@@ -92,18 +92,7 @@ include("db.connection.php");
         </table>
     </div>
     <div class="ddownadrticle2"> 
-        <h1>Issued Return books</h1>
-           <form action="" method="POST">
-                <label for="Approval">ID NUMBER:  </label>
-                <input type="text" placeholder="Approval" id="search" name="approval">
-                <br>
-                <input type="datetime-local" name="datetime" class="datetime">
-                <br>
-                <input type="hidden" name="status" value="Returned" >
-                <input type="submit" name="submit" id="submit" value="Submit">
-                <input type="hidden" name="idnumber" value="<?php echo $row['idnumber'] ?>">
-                <input type="hidden" name="datetime" value="<?php echo $row['datetime'] ?>">
-           </form>
+    
     </div>
     <?php
     include("db.connection.php");

@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is logged in
 if (!isset($_SESSION['uname'])) {
-    header('Location: studentprofile.php');
+    header('Location: index.php');
     exit();
 }
 //Retrieve user data using the username
