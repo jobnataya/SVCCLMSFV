@@ -67,35 +67,45 @@ include("db.connection.php");
         </form>
         </div>
     <div class="ddownadrticle">
-        <table>
+    <table>
             <tr>
+                <th>ID NUMBER</th>
+                <th>School Year</th>
                 <th>First Name</th>
-                <th>Last name</th>
-                <th>Year</th>
-                <th>ID Number</th>
-                <th>User type</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Department</th>
             </tr>
             <?php
                 require 'db.connection.php';
 
-                $sql = "SELECT fname, lname, year, idnumber, usertype from svcclms";
+                $sql = "SELECT * from svcclms";
                 $result = $conn-> query($sql);
 
                 if($result-> num_rows > 0 ){
                     while ($row = $result-> fetch_assoc() ) {
-                        echo "<tr><td>". $row["fname"] .  "<td>". $row["lname"] .
-                         "<td>". $row["year"].
-                          "<td>". $row["idnumber"].
-                         "<td>". $row["usertype"].
-                         "<tr><td>";
-
+                     
+                     ?>
+                     <tr>
+                        <td><?php  echo$row['idnumber'];?></td>
+                        <td><?php  echo$row['year'];?></td>
+                        <td><?php  echo$row['fname'];?></td>
+                        <td><?php  echo$row['mname'];?></td>
+                        <td><?php  echo$row['lname'];?></td>
+                        <td><?php  echo$row['department'];?></td>
+                        <td>
+                            <!-- <form action="studentviewbooksinfo.php" method="post" >
+                                <input type="hidden" name="bookname" value="<?php echo $row['bookname'] ?>">
+                                <input type="hidden" name="description" value="<?php echo $row['description'] ?>">
+                                <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
+                                <input type="submit" name="submit" class="submit" value="View">
+                            </form> -->
+                        </td>
+                     </tr>
+                        <?php 
                     }
-                    echo "</table>";
                 }
-                else{
-                    echo "0 result";
-                }
-                $conn-> close();
+            
             ?>
         </table>
     </div>

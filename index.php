@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="CSS/index.css">
 </head> 
 
-<body style="background: url(IMAGES/IMG_2764.JPG) no-repeat; background-size: cover;"">
-<div class="boddys"style="background: url(IMAGES/IMG_2764.JPG) no-repeat; background-size: cover;"">
+<body style="background: url(IMAGES/IMG_2764.JPG) no-repeat; background-size: cover;">
+<div class="boddys"style="background: url(IMAGES/IMG_2764.JPG) no-repeat; background-size: cover;">
     <div class="header">
         <div class="logo"><img src="IMAGES/Logo.png" alt="Logo svcc"></div>
         <div class="text"><h1>SAINT VINCENT  COLLEGE OF CABUYAO</h1></div>

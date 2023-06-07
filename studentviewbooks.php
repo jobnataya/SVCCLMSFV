@@ -92,7 +92,6 @@ while ( $user = mysqli_fetch_assoc($query )) {
                                 <input type="hidden" name="idnumber"  value="<?php echo $user['idnumber'] ?>">
                                 <input type="hidden" name="lname"  value="<?php echo $user['lname'] ?>">
                                 <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
-                                <input type="hidden" name="timestamp" id="timestamp">
                                 <input type="hidden" name="bookquantity" value="<?php echo $row['bookquantity'] ?>" >
                                 <input type="submit" name="borrow" class="submit" value="Borrow">
                             </form>
@@ -114,13 +113,12 @@ while ( $user = mysqli_fetch_assoc($query )) {
                         $idnumber = $_POST['idnumber'];
                         $borrower =  $_POST['fname'];
                         $lname = $_POST['lname'];
-                        $datetime = $_POST['timestamp'];
                         $bookquantity = $_POST['bookquantity'];
 
                         
         if (!empty($isbn) && !empty($borrower)) {
             
-            $query = "INSERT INTO bookborrow (`isbn`,`bookname`,`idnumber`,`fname`,`lname`,`datetime`) values ('$isbn','$bookname','$idnumber','$borrower','$lname','$datetime')";
+            $query = "INSERT INTO bookborrow (`isbn`,`bookname`,`idnumber`,`fname`,`lname`) values ('$isbn','$bookname','$idnumber','$borrower','$lname')";
 
 
 

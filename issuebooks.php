@@ -8,10 +8,55 @@ include("db.connection.php");
         if (!isset($_SESSION['uname'])) {
             header('Location: adminlogin.php');
             exit();
-        }
+}
         
         // Retrieve user data using the username
         $username = $_SESSION['uname'];
+
+?>
+<?php
+
+    include("db.connection.php");
+    $query = "SELECT * FROM bookborrow";
+    $result = mysqli_query($conn, $query);
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $isbnreq = $_POST['isbn'];
+        $isbnsearch = "SELECT * FROM bookborrow WHERE `isbn` = '$isbnreq'";
+        $isbnreqquery = mysqli_query($conn, $isbnsearch);
+
+        while($row = mysqli_fetch_assoc($isbnreqquery)){
+
+            $isbnuser = $row['isbn'];
+            $booknameuser =$row['bookname'];
+            $idnumberuser =$row['idnumber'];
+            $fnameuser = $row['fname'];
+            $lnameuser= $row['lname'];
+            $issueduser=$row['datetime'];
+
+            $bookQuery = "SELECT * FROM addbooks WHERE isbn = '$isbnuser'";
+            $bookQueryResult = mysqli_query($conn, $bookQuery);
+
+            while ($bookrow = mysqli_fetch_assoc($bookQueryResult)) {
+                
+                $quantity = $bookrow['bookquantity'];
+                $quantity -=1;
+                $total = $quantity;
+
+                $updateQuantity = "UPDATE addbooks SET bookquantity = '$total' WHERE isbn = '$isbnuser'";
+                mysqli_query($conn, $updateQuantity);
+
+                $issued_books = "INSERT INTO issued_books (`isbn`,`bookname`,`idnumber`,`fname`,`lname`) VALUE ('$isbnuser','$booknameuser','$idnumberuser','$fnameuser','$lnameuser')";
+                $issued_book_query = mysqli_query($conn, $issued_books);
+                
+                if(mysqli_num_rows($isbnreqquery) > 0){
+                    $delete = "DELETE FROM bookborrow WHERE isbn = '$isbnreq'";
+                    mysqli_query($conn, $delete);
+                    header("Location: issuebooks.php");
+                }
+            }
+        }
+    }
 
 ?>
 
@@ -65,79 +110,38 @@ include("db.connection.php");
     </div>
     
     <div class="ddownadrticle"> 
-    <table>
+
+        <table>
             <tr>
                 <th>ISBN</th>
                 <th>BOOK NAME</th>
                 <th>ID NUMBER</th>
                 <th>FIRST NAME</th>
                 <th>LAST NAME</th>
-                <th>DATE TIME</th>
+                <th>BORROWED AT</th>
             </tr>
             <?php
-                require 'db.connection.php';
-
-                $sql = "SELECT * from bookborrow";
-                $result = $conn-> query($sql);
-
-                if($result-> num_rows > 0 ){
-                    while ($row = $result-> fetch_assoc() ) {
-                     
-                     ?>
-                     <tr>
-                        <td><?php  echo$row['isbn'];?></td>
-                        <td><?php  echo$row['bookname'];?></td>
-                        <td><?php  echo$row['idnumber'];?></td>
-                        <td><?php  echo$row['fname'];?></td>
-                        <td><?php  echo$row['lname'];?></td>
-                        <td><?php  echo$row['datetime'];?></td>
-                        <td>
-                            <form action="" method="post">
-                            <input type="hidden" name="bookname" value="<?php echo $row['bookname']?>">
-                                <input type="hidden" name="fname"  value="<?php echo $row['fname'] ?>">
-                                <input type="hidden" name="idnumber"  value="<?php echo $row['idnumber'] ?>">
-                                <input type="hidden" name="lname"  value="<?php echo $row['lname'] ?>">
-                                <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
-                                <input type="submit" name="issue" value="ISSUE" >
-                                <input type="hidden" name="status" value="Issued" >
-                            </form>
-                        </td>
-                    </tr>
-                        <?php 
-                    }
-                }
+            while($row = mysqli_fetch_assoc($result))
+                {
             ?>
+            <tr>
+                <form action="" method="POST" >
+                <td><?php  echo$row['isbn'];?></td>
+                <td><?php  echo$row['bookname'];?></td>
+                <td><?php  echo$row['idnumber'];?></td>
+                <td><?php  echo$row['fname'];?></td>
+                <td><?php  echo$row['lname'];?></td>
+                <td><?php  echo$row['datetime'];?></td>
+                <td>
+                    <input type="hidden" name="isbn" value="<?php echo $row['isbn']; ?>">
+                    <input type="submit" value="Issue Book" >
+                </td>
+                </form>
+            </tr>
         </table>
-        <?php     
-                    include("db.connection.php");
-                    
-                    if (isset($_POST['issue'])) {
-                        
-                        $isbn = $_POST['isbn']; 
-                        $bookname= $_POST['bookname'];
-                        $idnumber = $_POST['idnumber'];
-                        $borrower =  $_POST['fname'];
-                        $lname = $_POST['lname'];
-                        $status = $_POST['status'];
-
-                        
-        if (!empty($isbn) && !empty($borrower)) {
-
-  
-            $query = "INSERT INTO returnbooks (`isbn`,`bookname`,`idnumber`,`nameborrower`,`lname`,`status`) values ('$isbn','$bookname','$idnumber','$borrower','$lname','$status')";
-
-            mysqli_query($conn, $query);
-
-                if (!empty($isbn) && !empty($borrower)) {
-            
-
-            echo "<script type = 'text/javascript'> alert ('Borrow Books Successfully')</script>";
-        }
-    }
-
-     }
-     ?>
+        <?php
+                }
+        ?>
     </div>
-    
 </body>
 </html>

@@ -95,18 +95,14 @@
                                 <input type="submit" name="submit" >
                             </form>
                         </td>
-                     </tr>
-
-                     
-                        
-                    
+                    </tr>
                         <?php 
                     }
                 }
             ?>
         </table>
+            </div>
     </div>
     </div>
-    
 </body>
 </html>

@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 .header{
-    color: white;
-    background: #33ab5f;
+   color: black;
+   background-color: white;
     width: 100%;
     display: flex;
     height: 100px;
@@ -52,14 +52,14 @@ nav ul li{
    line-height: 74px;
 }
 .Profile{
-    border-left: 5px solid  rgb(1, 212, 30);
+    border-left: 5px solid  yellow;
 }
 nav ul li a {
     border-bottom: 2px solid rgb(0, 0, 0);
     display: block;
     padding: 10px;
     text-decoration: none;
-    background: rgb(0, 121, 0);
+    background: red;
     transition: 0.3s;
     padding-left: 50px;
     font-size: larger;
@@ -68,7 +68,8 @@ nav ul li a {
     padding-left: 20px;
   }
 nav ul li a:hover{
-    background: rgb(1, 212, 30);
+   background: yellow;
+   color: black;
 }
 nav ul li i{
     margin-right: 20px;
@@ -81,12 +82,13 @@ nav ul li i{
     margin-left:262px;
     position: relative;
     padding-left: 200px;
-    background: rgb(1, 212, 30);
+    background-color: rgb(250, 250, 84);
     outline: auto;
     height: 25px;
 }
 .centerarticle ul{
     padding-top: 4px;
+   
 }
 .centerarticle ul li{
     display: inline;
@@ -95,12 +97,12 @@ nav ul li i{
 }
 .centerarticle ul li a{
     text-decoration: none;
-    color: white;
+    color: black;
     transition: 0.3s;
 }
 .centerarticle ul li a:hover{
-    padding: 1px;
-    background-color: rgb(0, 107, 9);
+  background-color: black;
+  color: yellow;
 }
 .logout{
     margin-top: 20px;
@@ -117,6 +119,7 @@ nav ul li i{
     padding-top: 15px;
     color: white;
     transition: 0.3s;
+    border-radius: 20px;
 }
 .logout p:hover{
     background: black;
@@ -136,24 +139,30 @@ nav ul li i{
    font-family: monospace;
 }
 table{
+    margin-top: -50px;
+    margin-left: -40px;
     border-collapse: collapse;
-    width: 100%;
+    width: 800px;
+    height: 250px;
 }
 table, th td{
-    border: 1px solid #ddd;
+    border: 1px solid #221f1f;
     padding: 8px;
-    text-align: left;
 }
 table, th{
-    background-color: #4CAF50;
-            color: white;
-}
-tr:nth-child(even) {
-    background-color: #16c74b;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    background: rgb(252, 252, 89);
+    color: black;
+    padding-left: 10px;
+    text-align: left    ;
 }
 table, td{
+   background: white;
     border-right: 1px solid black;
-   
+    color: black;
+    border-bottom: 1px solid black;
+    text-align: center;
 }
 tr:hover {
     background-color: #19f119;

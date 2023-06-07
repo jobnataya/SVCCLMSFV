@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Home</title>
-   <link rel="stylesheet" href="CSS/studentviewbookss.css">
+   <link rel="stylesheet" href="CSS/studentviewbooksinfo.css">
     <script src="https://kit.fontawesome.com/02acf016b4.js" crossorigin="anonymous"></script>
 </head>
 <body class="all" style="background:url(IMAGES/books.jpg)">
@@ -27,7 +27,6 @@
                 </div>
             </div>
             <div class="rightside">
-
              <?php 
                 include("db.connection.php");
                 
@@ -54,7 +53,7 @@
             <?php
                 }
             ?>
-
+    </div>
         <div class="footer"></div>
     </div>
 </body>

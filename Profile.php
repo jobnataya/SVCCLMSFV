@@ -1,3 +1,23 @@
+<?php
+include("db.connection.php");
+session_start(); 
+
+// Check if the user is logged in
+if (!isset($_SESSION['uname'])) {
+    header('Location: index.php');
+    exit();
+}
+//Retrieve user data using the username
+$username = $_SESSION['uname'];
+
+//Display user data
+
+$sql = "SELECT * FROM adminlogin WHERE uname = '$username'";
+
+$query = mysqli_query($conn, $sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,41 +66,41 @@
         </ul>
     </div>
     <div class="ddownadrticle"> 
-    <table>
-            <tr>
-                <th>First Name</th>
-                <th>Last name</th>
-                <th>Year</th>
-                <th>BirthDay</th>
-                <th>Contact Number</th>
-            </tr>
-            <?php
-       
-        session_start();
-        include("db.connection.php");
-        // Check if the user is logged in
-        if (!isset($_SESSION['uname'])) {
-            header('Location: adminlogin.php');
-            exit();
-        }
-        
-        // Retrieve user data using the username
-        $username = $_SESSION['uname'];
-        
-        // Display user data
-        $sql = "SELECT * FROM adminlogin WHERE uname = '$username'";
-        $query = mysqli_query($conn, $sql);
-        
-        while ( $row = mysqli_fetch_assoc($query )) {
-            echo "<tr><td>". $row["fname"] .  "<td>". $row["lname"] .
-                 "<td>". $row["year"].
-                 "<td>". $row["bday"]. 
-                 "<td>". $row["contactnumber"].
-                 "<tr><td>";
-        }
-        // Display other user information
-        ?>
-        </table>
+    <?php 
+                include("db.connection.php");
+
+                if ($query-> num_rows > 0 ) {
+                    while ($row = $query-> fetch_assoc() ) {
+                    
+                ?>
+                <table>
+                    <tr>
+                        <th>First Name:</th>
+                        <td><?php echo$row['fname'];?></td>
+                        
+                        <th>Gender:</th>
+                        <td><?php echo$row['gender'];?></td>
+                    </tr>
+                    <tr>
+                        <th>Middle Name:</th>
+                        <td><?php echo$row['mname'];?></td>
+
+                        <th>Last Name:</th>
+                        <td><?php echo$row['lname'];?></td>
+                    </tr>
+                    <tr>
+                        <th>Birthday:</th>
+                        <td><?php echo$row['bday'];?></td>
+                        <th>Contact Number:</th>
+                        <td><?php echo$row['contactnumber'];?></td>
+                    </tr>
+                    
+                <?php
+                    }
+
+                }
+                ?>
+                </table>
     </div>
     </div>
     

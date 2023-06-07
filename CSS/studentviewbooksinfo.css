@@ -5,7 +5,7 @@
 }
 .all .header{
     display: flex;
-    background: #33ab5f;
+    background: white;
     justify-content: space-between;
 }
 .all .header .logo{
@@ -23,7 +23,7 @@
 }
 .all .header .textlogo h1{
     font-family: monospace;
-    color: white;
+    color: black;
 }
 .article .leftside i{
    position: absolute;
@@ -52,9 +52,9 @@
 }
 .article .leftside .navleft ul li a {
     text-decoration: none;    
-    color: black;
+   color: white;
     display: block;
-    background: #bfa8bb;
+    background: red;
     transition: 0.3s;
     text-align: center;
     font-family: monospace;
@@ -62,8 +62,8 @@
     padding-left: 25px;
 }
 .article .leftside .navleft ul li a:hover{
-    background: rgb(0, 167, 0);
-    color: white;
+    background: yellow;
+    color: black;
 }
 .all .header .textlogo .logout{
     margin-left: 10px;
@@ -105,12 +105,12 @@ table, th td{
    
 }
 table, th{
-    background-color: #d5f591;
+   background-color: rgb(252, 252, 73);
     padding: 10px;
 }
 table, td{
     border-right: 1px solid black;
-    background-color: #8cdba9;
+    background-color: white;
     padding: 20px;
    
 }
