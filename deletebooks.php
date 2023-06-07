@@ -14,11 +14,13 @@
     session_start();
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $bookname = $_POST['booknames'];
 
-        $query = "DELETE FROM addbooks where bookname = '$bookname'";
+        $isbn = $_POST['isbn'];
+
+        $query = "DELETE FROM addbooks where isbn = '$isbn'";
 
         if (mysqli_query($conn, $query)) {
+            
             echo "<script type='text/javascript'> alert('Delete books Successfully!')</script>";
         } else {
             echo "<script type='text/javascript'> alert('Error Delete books!')</script>";
@@ -50,7 +52,7 @@
                 <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href="studentaccount.php"><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href="issuebooks.php"> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
-                <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
+                <li><a href="issuedreturnbooks.php"><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
         </nav>
     </div>
@@ -67,10 +69,10 @@
         <div class="form">
             <form method="POST">
         <div class="artikel">
-            <label for="Bookname">Bookname</label>
-            <input type="text" id="bookname" name="booknames">
+            <label for="Bookname">ISBN</label>
+            <input type="text" id="bookname" name="isbn" required >
             <div class="subclear">
-                <input type="submit" value="Delete" id="delete">
+                <input type="submit" value="Delete" id="delete" >
            
             <div class="clear">
                 <input type="reset" value="Clear" id="clear">

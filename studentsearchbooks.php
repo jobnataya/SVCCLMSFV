@@ -53,7 +53,7 @@ while ( $user = mysqli_fetch_assoc($query )) {
             <div class="rightside">
                 <div class="searchviewbooks">
                 <form action="studentsearchbooks.php" method="GET" >
-                    <input type="text" placeholder="Search Books" class="searchbooks" name="search" > 
+                    <input type="text" placeholder="Search Books" class="searchbooks" name="search" >
                     <input type="submit" value="search" class="submitviewbooks" >
                 </form>
                 </div>
@@ -70,8 +70,10 @@ while ( $user = mysqli_fetch_assoc($query )) {
             <?php
                 require 'db.connection.php';
 
-                $sql = "SELECT * from addbooks";
-                $result = $conn-> query($sql);
+                $search = isset($_GET['search']) ? $_GET['search'] : '';
+
+                $sql = "SELECT * FROM addbooks WHERE isbn LIKE '%$search%' OR bookid LIKE '%$search%' OR bookname LIKE '%$search%' OR author LIKE '%$search%' OR bookquantity LIKE '%$search%'";
+                $result = $conn->query($sql);
 
                 if($result-> num_rows > 0 ){
                     while ($row = $result-> fetch_assoc() ) {

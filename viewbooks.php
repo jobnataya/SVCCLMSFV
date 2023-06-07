@@ -1,3 +1,18 @@
+<?php
+session_start();
+include("db.connection.php"); 
+
+
+        // Check if the user is logged in
+        if (!isset($_SESSION['uname'])) {
+            header('Location: adminlogin.php');
+            exit();
+        }
+        
+        // Retrieve user data using the username
+        $username = $_SESSION['uname'];
+
+?>
 <?php 
     include("db.connection.php");
     
@@ -45,7 +60,7 @@
                 <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href="studentaccount.php"><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href="issuebooks.php"> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
-                <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
+                <li><a href="issuedreturnbooks.php"><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
         </nav>
     </div>
@@ -71,6 +86,7 @@
                 <th>BOOK NAME</th>
                 <th>AUTHOR</th>
                 <th>BOOK QUANTITY</th>
+                <th>View Books</th>
             </tr>
             <?php
                 require 'db.connection.php';

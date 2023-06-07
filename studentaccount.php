@@ -48,7 +48,7 @@ include("db.connection.php");
                 <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li class="studentaccount"><a href="studentaccount.php"><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href="issuebooks.php"> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
-                <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
+                <li><a href="issuedreturnbooks.php"><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
         </nav>  
     </div>
@@ -93,14 +93,6 @@ include("db.connection.php");
                         <td><?php  echo$row['mname'];?></td>
                         <td><?php  echo$row['lname'];?></td>
                         <td><?php  echo$row['department'];?></td>
-                        <td>
-                            <!-- <form action="studentviewbooksinfo.php" method="post" >
-                                <input type="hidden" name="bookname" value="<?php echo $row['bookname'] ?>">
-                                <input type="hidden" name="description" value="<?php echo $row['description'] ?>">
-                                <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
-                                <input type="submit" name="submit" class="submit" value="View">
-                            </form> -->
-                        </td>
                      </tr>
                         <?php 
                     }

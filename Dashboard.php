@@ -47,7 +47,7 @@
                 <li class="cdashboard"><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href="studentaccount.php"><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href="issuebooks.php"> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
-                <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
+                <li><a href="issuedreturnbooks.php"><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
         </nav>
     </div>
@@ -126,7 +126,7 @@
             <div class="content">
             <?php
         include("db.connection.php");
-            $sql = "SELECT status FROM returnbooks Where `status`='Issued'";
+        $sql = "SELECT * FROM issued_books";
 
             $result = $conn->query($sql);
 

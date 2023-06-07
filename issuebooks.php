@@ -48,6 +48,10 @@ include("db.connection.php");
 
                 $issued_books = "INSERT INTO issued_books (`isbn`,`bookname`,`idnumber`,`fname`,`lname`) VALUE ('$isbnuser','$booknameuser','$idnumberuser','$fnameuser','$lnameuser')";
                 $issued_book_query = mysqli_query($conn, $issued_books);
+
+                $issuedreturnbooks = "INSERT INTO issuedreturnbooks (`isbn`,`bookname`,`idnumber`,`fname`,`lname`,`borrowedat`) VALUE ('$isbnuser','$booknameuser','$idnumberuser','$fnameuser','$lnameuser','$issueduser')";
+                $issued_book_query = mysqli_query($conn,  $issuedreturnbooks);
+                
                 
                 if(mysqli_num_rows($isbnreqquery) > 0){
                     $delete = "DELETE FROM bookborrow WHERE isbn = '$isbnreq'";
@@ -95,7 +99,7 @@ include("db.connection.php");
                 <li><a href="Profile.php"><i class="fa-regular fa-id-card"></i>Profile</a></li>
                 <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href="studentaccount.php"><i class="fa-solid fa-school"></i>Student Account</a></li>
-                <li><a href="issuebooks.php"> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
+                <li class="issuebooksleft" ><a href="issuebooks.php"> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
                 <li><a href="issuedreturnbooks.php"><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
         </nav>
@@ -119,13 +123,14 @@ include("db.connection.php");
                 <th>FIRST NAME</th>
                 <th>LAST NAME</th>
                 <th>BORROWED AT</th>
+                <th>Issue Books</th>
             </tr>
             <?php
             while($row = mysqli_fetch_assoc($result))
                 {
             ?>
             <tr>
-                <form action="" method="POST" >
+                <form action="" method="POST">
                 <td><?php  echo$row['isbn'];?></td>
                 <td><?php  echo$row['bookname'];?></td>
                 <td><?php  echo$row['idnumber'];?></td>
@@ -138,10 +143,11 @@ include("db.connection.php");
                 </td>
                 </form>
             </tr>
-        </table>
+        
         <?php
                 }
         ?>
+        </table>
     </div>
 </body>
 </html>

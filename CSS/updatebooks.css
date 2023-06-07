@@ -75,7 +75,7 @@ nav ul li a {
     display: block;
     padding: 10px;
     text-decoration: none;
-    background: rgb(0, 121, 0);
+   background-color: red;
     transition: 0.3s;
     padding-left: 50px;
     font-size: larger;
@@ -84,7 +84,8 @@ nav ul li a {
     padding-left: 20px;
   }
 nav ul li a:hover{
-    background: rgb(1, 212, 30);
+  background-color: yellow;
+  color: black;
 }
 nav ul li i{
     margin-right: 20px;
@@ -97,7 +98,7 @@ nav ul li i{
     margin-left:262px;
     position: relative;
     padding-left: 200px;
-    background: rgb(1, 212, 30);
+    background-color: yellow;
     outline: auto;
     height: 25px;
 }
@@ -111,7 +112,7 @@ nav ul li i{
 }
 .centerarticle ul li a{
     text-decoration: none;
-    color: white;
+    color: black;
     transition: 0.3s;
 }
 .ddownadrticle{
@@ -147,13 +148,11 @@ nav ul li i{
     border-bottom: 2px solid red;
 }
 .centerarticle ul li a:hover{
-    background-color: rgb(0, 107, 9);
+   background-color: black;
+   color: yellow;
 }
 .ddownadrticle h1{
     font-family: monospace;
-}
-.ddownadrticle{
-
 }
 .ddownadrticle .forms{
     padding-top: 35px;
@@ -171,43 +170,38 @@ nav ul li i{
     margin-left: 40px;
     height: 30px;
     width: 350px;
-    background-color: green;
-    color: white;
-    border-style: none;
+    border: 2px solid red;
+    color: black;
 }
 .ddownadrticle #bookname{
     border-radius: 40px;
     height: 30px;
     width: 350px;
-    background-color: green;
-    color: white;
-    border-style: none;
+    border: 2px solid red;
+    color: black;
 }
 .ddownadrticle #Author{
     border-radius: 40px;
     height: 30px;
     width: 350px;
     margin-left: 30px;
-    background-color: green;
-    color: white;
-    border-style: none;
+    border: 2px solid red;
+    color: black;
 }
 .ddownadrticle #Quantity{
     border-radius: 40px;
     height: 30px;
     width: 70px;
-    background-color: green;
-    color: white;
-    border-style: none;
+    border: 2px solid red;
+    color: black;
 }
 .ddownadrticle #bookid{
     border-radius: 40px;
     height: 30px;
     width: 350px;
     margin-left: 20px;
-    background-color: green;
-    color: white;
-    border-style: none;
+    border: 2px solid red;
+    color: black;
 }
 .inputclear{
     padding-bottom: 5px;
@@ -216,7 +210,7 @@ nav ul li i{
     height: 40px;
     width: 60px;
     background-color: green;
-    color: white;
+    color: white;   
     cursor: pointer;
     transition: 0.3s;
 }

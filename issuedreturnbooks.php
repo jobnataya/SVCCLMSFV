@@ -1,7 +1,64 @@
 <?php
 session_start();
 include("db.connection.php"); 
+
+
+
+        // Check if the user is logged in
+        if (!isset($_SESSION['uname'])) {
+            header('Location: adminlogin.php');
+            exit();
+}
+        
+        // Retrieve user data using the username
+        $username = $_SESSION['uname'];
+
 ?>
+<?php
+
+    include("db.connection.php");
+    $query = "SELECT * FROM  issuedreturnbooks";
+    $result = mysqli_query($conn, $query);
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $isbnreq = $_POST['isbn'];
+        $isbnsearch = "SELECT * FROM issuedreturnbooks WHERE `isbn` = '$isbnreq'";
+        $isbnreqquery = mysqli_query($conn, $isbnsearch);
+
+        while($row = mysqli_fetch_assoc($isbnreqquery)){
+
+            $isbnuser = $row['isbn'];
+            $booknameuser =$row['bookname'];
+            $idnumberuser =$row['idnumber'];
+            $fnameuser = $row['fname'];
+            $lnameuser= $row['lname'];
+            $issueduser=$row['borrowedat'];
+
+            $bookQuery = "SELECT * FROM addbooks WHERE isbn = '$isbnuser'";
+            $bookQueryResult = mysqli_query($conn, $bookQuery);
+
+            while ($bookrow = mysqli_fetch_assoc($bookQueryResult)) {
+                
+                $quantity = $bookrow['bookquantity'];
+                $quantity +=1;
+                $total = $quantity;
+
+                $updateQuantity = "UPDATE addbooks SET bookquantity = '$total' WHERE isbn = '$isbnuser'";
+                mysqli_query($conn, $updateQuantity);
+
+                
+                if(mysqli_num_rows($isbnreqquery) > 0){
+                    $delete = "DELETE FROM  issuedreturnbooks WHERE isbn = '$isbnreq'";
+                    mysqli_query($conn, $delete);
+                    header("Location: issuebooks.php");
+
+                }
+            }
+        }
+    }
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +95,7 @@ include("db.connection.php");
                 <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li><a href="studentaccount.php"><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href="issuebooks.php"> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
-                <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
+                <li  class="issuebooksleft" ><a href="issuedreturnbooks.php"><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
         </nav>
     </div>
@@ -52,71 +109,41 @@ include("db.connection.php");
     </div>
     
     <div class="ddownadrticle"> 
-    <table>
+
+        <table>
             <tr>
                 <th>ISBN</th>
                 <th>BOOK NAME</th>
                 <th>ID NUMBER</th>
-                <th>NAME BORROWER</th>
-                <th>STATUS</th>
-                <th>RETURNED</th>
-                <th>DATE TIME RETURNED</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>ISSUED AT</th>
+                <th>Return Books</th>
             </tr>
             <?php
-                require 'db.connection.php';
-
-                $sql = "SELECT * from returnbooks";
-                $result = $conn-> query($sql);
-
-                if($result-> num_rows > 0 ){
-                    while ($row = $result-> fetch_assoc() ) {
-                     
-                     ?>
-                     <tr>
-                        <td><?php  echo$row['isbn'];?></td>
-                        <td><?php  echo$row['bookname'];?></td>
-                        <td><?php  echo$row['idnumber'];?></td>
-                        <td><?php  echo$row['nameborrower'];?></td>
-                        <td><?php  echo$row['status'];?></td>
-                        <td><?php  echo$row['returned'];?></td>
-                        <td><?php  echo$row['datetime'];?></td>
-                     </tr>
-
-                     
-                        
-                    
-                        <?php 
-                    }
-                }
+            while($row = mysqli_fetch_assoc($result))
+                {
             ?>
+            <tr>
+                <form action="" method="POST">
+                <td><?php  echo$row['isbn'];?></td>
+                <td><?php  echo$row['bookname'];?></td>
+                <td><?php  echo$row['idnumber'];?></td>
+                <td><?php  echo$row['fname'];?></td>
+                <td><?php  echo$row['lname'];?></td>
+                <td><?php  echo$row['borrowedat'];?></td>
+                <td>
+                    <input type="hidden" name="isbn" value="<?php echo $row['isbn']; ?>">
+                    <input type="submit" value="Return Books" >
+                    <input type="hidden" value="Returned" name="returned">
+                </td>
+                </form>
+            </tr>
+        
+        <?php
+                }
+        ?>
         </table>
     </div>
-    <div class="ddownadrticle2"> 
-    
-    </div>
-    <?php
-    include("db.connection.php");
-
-    
-    if ($_SERVER['REQUEST_METHOD'] == 'POST')
-     {
-        $idnumber =$_POST['idnumber'];
-        $status =$_POST['status'];
-        $datetime = $_POST['datetime'];
-
-        $query = "UPDATE returnbooks SET `status` = '$status' SET `datetime` = '$datetime' WHERE idnumber = '$idnumber'";
-
-        
-        
-        if (mysqli_query($conn, $query)) {
-            echo "<script type='text/javascript'> alert('Returend books Successfully!')</script>";
-        } else {
-            echo "<script type='text/javascript'> alert('Error Returend books!')</script>";
-        }
-        
-    }  
-?>
-    </div>
-    
 </body>
 </html>
