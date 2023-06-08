@@ -1,3 +1,18 @@
+<?php
+session_start();
+include("db.connection.php"); 
+
+
+        // Check if the user is logged in
+        if (!isset($_SESSION['uname'])) {
+            header('Location: adminlogin.php');
+            exit();
+        }
+        
+        // Retrieve user data using the username
+        $username = $_SESSION['uname'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,9 +48,9 @@
                 <li><a href="dashboard.php"  ><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
                 <li class="studentaccount"><a href="studentaccount.php"><i class="fa-solid fa-school"></i>Student Account</a></li>
                 <li><a href="issuebooks.php"> <i class="fa-solid fa-exclamation"></i>Issue Books</a></li>
-                <li><a href=""><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
+                <li><a href="issuedreturnbooks.php"><i class="fa-solid fa-book"></i>Issued/Return Books</a></li>
             </ul>
-        </nav>
+        </nav>  
     </div>
     <div class="centerarticle">
         <ul>
@@ -46,46 +61,46 @@
         </ul>
     </div>
 <div class="searchs">
-        <form method="GET" action="testing.php">
+        <form method="GET" action="studentviewsearch.php">
         <input type="text" name="search" placeholder="Search..." id="search">
         <input type="submit" value="Search" id="searchbutton">
         </form>
         </div>
     <div class="ddownadrticle">
-        <table>
+    <table>
             <tr>
-            <th>First Name</th>
-                <th>Last name</th>
-                <th>Year</th>
-                <th>ID Number</th>
-                <th>User type</th>
+                <th>ID NUMBER</th>
+                <th>School Year</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Department</th>
             </tr>
             <?php
-     include("db.connection.php");
+                require 'db.connection.php';
 
-        $query = isset($_GET['search']) ? $_GET['search'] : '';
-    
-        // Perform the database query
-     if (!empty($query)) {
-        $sql = "SELECT * FROM svcclms WHERE lname  LIKE '%$query%'";
-        $result = $conn->query($sql);
-    
-        // Display the search results
-        if ($result->num_rows > 0) {
-            while ($row = $result-> fetch_assoc() ) {
-                echo "<tr><td>". $row["fname"] .  "<td>". $row["lname"] .
-                 "<td>". $row["year"].
-                  "<td>". $row["idnumber"].
-                 "<td>". $row["usertype"]. 
-                 "<tr><td>";
-            }
-        } else {
-            echo "No results found.";
-        }
-    } else {
-        echo "Please enter a search query.";
-    }
-    ?>
+                $search = isset($_GET['search']) ? $_GET['search'] : '';
+
+                $sql = "SELECT * FROM svcclms WHERE idnumber LIKE '%$search%' OR mname LIKE '%$search%' OR fname LIKE '%$search%' OR lname LIKE '%$search%' OR department LIKE '%$search%'";
+                $result = $conn->query($sql);
+
+                if($result-> num_rows > 0 ){
+                    while ($row = $result-> fetch_assoc() ) {
+                     
+                     ?>
+                     <tr>
+                        <td><?php  echo$row['idnumber'];?></td>
+                        <td><?php  echo$row['year'];?></td>
+                        <td><?php  echo$row['fname'];?></td>
+                        <td><?php  echo$row['mname'];?></td>
+                        <td><?php  echo$row['lname'];?></td>
+                        <td><?php  echo$row['department'];?></td>
+                     </tr>
+                        <?php 
+                    }
+                }
+            
+            ?>
         </table>
     </div>
     </div>

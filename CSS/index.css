@@ -72,8 +72,8 @@
     transition: 0.3s;
 }
 #submit:hover{
-    background-color: rgb(46, 92, 0);
-    color: white;
+    background-color: rgb(247, 247, 102);
+    color: black;
 }
 #Signup{
     margin-left: 90px;
@@ -94,8 +94,8 @@
     transition: 0.3s;
 }
 #admin:hover{
-    background-color: rgb(46, 92, 0);
-    color: white;
+    background-color: rgb(247, 247, 102);
+    color: black;
 }
 .footer{
     margin-top: 20px;

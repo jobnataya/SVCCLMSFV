@@ -67,43 +67,31 @@ include("db.connection.php");
         <input type="submit" value="Search" id="searchbutton">
         </form>
         </div>
-    <div class="ddownadrticle">
-        <table>
-            <tr>
-                <th>ISBN</th>
-                <th>SERIES</th>
-                <th>BOOK NAME</th>
-                <th>AUTHOR</th>
-                <th>BOOK QUANTITY</th>
-                <th>View Books</th>
-            </tr>
+    <div class="ddownadrticle"> 
+            <?php 
+                include("db.connection.php");
+                
+                if (isset($_POST['submit'])) {
+                    $isbn = $_POST['isbn'];
+                    $bookname = $_POST['bookname'];
+                    $description = $_POST['description'];
+            ?>
+                    <table>
+                        <tr>
+                            <th>ISBN</th>
+                            <th>Book Name</th>
+                            <th>Description</th>
+                        </tr>
+
+                        <tr>
+                            <td><?php echo $isbn;?></td>
+                            <td><?php echo $bookname;?></td>
+                            <td><?php echo $description;?></td>
+                        </tr>
+                    </table>
+
+            
             <?php
-                require 'db.connection.php';
-
-                $sql = "SELECT * from addbooks";
-                $result = $conn-> query($sql);
-
-                if($result-> num_rows > 0 ){
-                    while ($row = $result-> fetch_assoc() ) {
-                     
-                     ?>
-                     <tr>
-                        <td><?php  echo$row['isbn'];?></td>
-                        <td><?php  echo$row['bookid'];?></td>
-                        <td><?php  echo$row['bookname'];?></td>
-                        <td><?php  echo$row['author'];?></td>
-                        <td><?php  echo$row['bookquantity'];?></td>
-                        <td>
-                            <form action="viewbooksinfoadmin.php" method="post">
-                                <input type="hidden" name="description" value="<?php echo $row['description'] ?>">
-                                <input type="hidden" name="bookname" value="<?php echo $row['bookname'] ?>">
-                                <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
-                                <input type="submit" name="submit" value="View" class="submit">
-                            </form>
-                        </td>
-                    </tr>
-                        <?php 
-                    }
                 }
             ?>
         </table>

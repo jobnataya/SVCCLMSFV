@@ -154,7 +154,7 @@
             <div class="content">
             <?php
         include("db.connection.php");
-        $sql = "SELECT returned FROM returnbooks Where `returned`='Returned'";
+        $sql = "SELECT * FROM returnedhistory";
 
             $result = $conn->query($sql);
 

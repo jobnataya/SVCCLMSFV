@@ -92,7 +92,7 @@ while ( $user = mysqli_fetch_assoc($query )) {
                             </form>
                         </td>
                         <td>
-                            <form action="GET" method="post" >
+                            <form action="" method="post" >
                                 <input type="hidden" name="bookname" value="<?php echo $row['bookname']?>">
                                 <input type="hidden" name="fname"  value="<?php echo $user['fname'] ?>">
                                 <input type="hidden" name="idnumber"  value="<?php echo $user['idnumber'] ?>">

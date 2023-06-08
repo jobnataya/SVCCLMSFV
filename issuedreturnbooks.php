@@ -33,6 +33,7 @@ include("db.connection.php");
             $fnameuser = $row['fname'];
             $lnameuser= $row['lname'];
             $issueduser=$row['borrowedat'];
+            $issueduserd=$row['issuedat'];
 
             $bookQuery = "SELECT * FROM addbooks WHERE isbn = '$isbnuser'";
             $bookQueryResult = mysqli_query($conn, $bookQuery);
@@ -44,9 +45,14 @@ include("db.connection.php");
                 $total = $quantity;
 
                 $updateQuantity = "UPDATE addbooks SET bookquantity = '$total' WHERE isbn = '$isbnuser'";
+
+
+                $insertreturnbooks =  "INSERT INTO returnedhistory (`isbn`,`bookname`,`idnumber`,`fname`,`lname`, `issuedat`) VALUE ('$isbnuser','$booknameuser','$idnumberuser','$fnameuser','$lnameuser','$issueduserd')";
+                $issued_book_query = mysqli_query($conn,  $insertreturnbooks);
+
                 mysqli_query($conn, $updateQuantity);
 
-                
+
                 if(mysqli_num_rows($isbnreqquery) > 0){
                     $delete = "DELETE FROM  issuedreturnbooks WHERE isbn = '$isbnreq'";
                     mysqli_query($conn, $delete);
@@ -131,7 +137,7 @@ include("db.connection.php");
                 <td><?php  echo$row['idnumber'];?></td>
                 <td><?php  echo$row['fname'];?></td>
                 <td><?php  echo$row['lname'];?></td>
-                <td><?php  echo$row['borrowedat'];?></td>
+                <td><?php  echo$row['issuedat'];?></td>
                 <td>
                     <input type="hidden" name="isbn" value="<?php echo $row['isbn']; ?>">
                     <input type="submit" value="Return Books" >
