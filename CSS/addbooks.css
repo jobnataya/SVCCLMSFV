@@ -51,6 +51,7 @@
     padding-top: 15px;
     color: white;
     transition: 0.3s;
+    border-radius: 20px;
 }
 .logout p:hover{
     background: black;

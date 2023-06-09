@@ -115,6 +115,7 @@ nav ul li i{
     padding-top: 15px;
     color: white;
     transition: 0.3s;
+    border-radius: 20px;
 }
 .logout p:hover{
     background: black;
@@ -193,4 +194,7 @@ tr:hover {
 }
 .issuebooksleft{
     border-left: 5px solid yellow;
+}
+.issuebook{
+    border-style: none;
 }

@@ -68,26 +68,7 @@
            <h1>Number of Students</h1>
            </div>
            <div class="content">
-           <?php
-        include("db.connection.php");
-            $sql = "SELECT * FROM svcclms";
-
-            $result = $conn->query($sql);
-
-        // Check if the query returned any rows
-        if ($result->num_rows > 0) {
-            // Count the number of rows (i.e., number of students)
-            $numStudents = $result->num_rows;
-
-            // Display the number of students registered
-            echo  "<h1> $numStudents </h1>";
-        } else {
-            echo "No students found.";
-        }
-
-        // Close the database connection
-        $conn->close();
-        ?>
+            <h1>50</h1>
            </div>
         </div>  
 

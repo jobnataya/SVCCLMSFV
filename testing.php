@@ -92,10 +92,11 @@
                         <td><?php  echo$row['author'];?></td>
                         <td><?php  echo$row['bookquantity'];?></td>
                         <td>
-                            <form action="" method="post">
+                            <form action="viewbooksinfoadmin.php" method="post">
+                            <input type="hidden" name="bookname" value="<?php echo $row['bookname'] ?>">
                                 <input type="hidden" name="description" value="<?php echo $row['description'] ?>">
                                 <input type="hidden" name="isbn" value="<?php echo $row['isbn'] ?>">
-                                <input type="submit" name="submit" >
+                                <input type="submit" name="submit" value="View" class="submit">
                             </form>
                         </td>
                     </tr>

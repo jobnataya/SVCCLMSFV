@@ -25,7 +25,7 @@
 
         
 
-        $query = "UPDATE addbooks SET date = '$date', isbn = '$isbn', bookid = '$bookid', bookname = '$bookname', author = '$author', bookquantity = '$bookquantity', `description`,='$description' WHERE bookname = '$bookname'";
+        $query = "UPDATE addbooks SET `date` = '$date', isbn = '$isbn', bookid = '$bookid', bookname = '$bookname', author = '$author', bookquantity = '$bookquantity', `description` ='$description' WHERE bookname = '$bookname'";
         
         if (mysqli_query($conn, $query)) {
             echo "<script type='text/javascript'> alert('Update books Successfully!')</script>";
@@ -76,25 +76,25 @@
         <div class="forms">
         <form method="POST">
             <label for="dateentry">Date of Entry</label>
-            <input type="date" name="date">
+            <input type="date" name="date" required >
             <br>
             <label for="isbn">ISBN</label>
-            <input type="text" id="isbn" maxlength="13" name="isbn">
+            <input type="text" id="isbn" maxlength="13" name="isbn"  required>
             <br>
             <label for="bookid">SERIES</label>
-            <input type="text" id="bookid" maxlength="20" name="bookid">
+            <input type="text" id="bookid" maxlength="20" name="bookid"  required>
             <br>
             <label for="Booke Name">Book Name</label>
             <input type="text" id="bookname" name="bookname">
             <br>
             <label for="Author">Author</label>
-            <input type="text" name="author" maxlength="20" id="Author" >
+            <input type="text" name="author" maxlength="20" id="Author"   required>
             <br>
             <label for="Descrption">Description</label>
-            <input type="text" name="description" id="Author">
+            <input type="text" name="description" id="Author" required> 
             <br>
             <label for="bookquantity">Book Quantity</label>
-            <input type="number" name="bookquantity" min="1" max="100" id="Quantity">
+            <input type="number" name="bookquantity" min="1" max="100" id="Quantity"  required>
             <br>
             <div class="inputclear">
                 <div class="add">

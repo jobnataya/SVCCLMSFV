@@ -139,7 +139,7 @@ include("db.connection.php");
                 <td><?php  echo$row['datetime'];?></td>
                 <td>
                     <input type="hidden" name="isbn" value="<?php echo $row['isbn']; ?>">
-                    <input type="submit" value="Issue Book" >
+                    <input type="submit" value="Issue Book" class="issuebook">
                 </td>
                 </form>
             </tr>
